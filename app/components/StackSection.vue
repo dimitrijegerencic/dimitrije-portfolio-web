@@ -7,13 +7,14 @@ const groups = computed(() => [
   {
     label: t('stack.frontend'),
     items: [
-      { name: 'TypeScript', icon: 'i-simple-icons-typescript', brand: '#3178C6' },
-      { name: 'React', icon: 'i-simple-icons-react', brand: '#61DAFB' },
       { name: 'Vue', icon: 'i-simple-icons-vuedotjs', brand: '#4FC08D' },
+      { name: 'React', icon: 'i-simple-icons-react', brand: '#61DAFB' },
       { name: 'Nuxt', icon: 'i-simple-icons-nuxt', brand: '#00DC82' },
       { name: 'Vuetify', icon: 'i-simple-icons-vuetify', brand: '#1867C0' },
       { name: 'Nuxt UI', icon: 'i-lucide-blocks', brand: '#00DC82' },
-      { name: 'Tailwind CSS', icon: 'i-simple-icons-tailwindcss', brand: '#06B6D4' }
+      { name: 'Tailwind CSS', icon: 'i-simple-icons-tailwindcss', brand: '#06B6D4' },
+      { name: 'TypeScript', icon: 'i-simple-icons-typescript', brand: '#3178C6' },
+      { name: 'JavaScript', icon: 'i-simple-icons-javascript', brand: '#F7DF1E' }
     ]
   },
   {
