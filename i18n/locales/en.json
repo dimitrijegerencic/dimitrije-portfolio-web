@@ -14,7 +14,7 @@
   },
   "hero": {
     "greeting": "Hi, I'm {name}.",
-    "tagline": "I build the part of the web you touch.",
+    "tagline": "I build interfaces that work.",
     "role": "Frontend developer from Podgorica, Montenegro.",
     "subtitle": "For {n}+ years I've been turning designs into fast, accessible interfaces that hold up once real people start clicking.",
     "seeWork": "See my work",
@@ -201,7 +201,9 @@
     "title": "Reviewed and approved.",
     "intro": "A few words from people I have shipped things with.",
     "approved": "approved these changes",
+    "commented": "left a comment",
     "badge": "Approved",
+    "commentBadge": "Commented",
     "prev": "Previous review",
     "next": "Next review",
     "slide": "Review {n} of {total}",
@@ -214,7 +216,8 @@
       {
         "name": "Colleague 2",
         "role": "Role, Company",
-        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
+        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you.",
+        "action": "commented"
       },
       {
         "name": "Colleague 3",
@@ -224,38 +227,13 @@
       {
         "name": "Colleague 4",
         "role": "Role, Company",
-        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
+        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you.",
+        "action": "commented"
       },
       {
         "name": "Colleague 5",
         "role": "Role, Company",
         "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
-      }
-    ]
-  },
-  "now": {
-    "title": "Right now.",
-    "updated": "Last updated October 2026.",
-    "items": [
-      {
-        "label": "Working on",
-        "value": "The US healthcare platform at Codeus"
-      },
-      {
-        "label": "Learning",
-        "value": "Getting the most out of AI in my day-to-day work"
-      },
-      {
-        "label": "Watching",
-        "value": "Placeholder: the film or series you are on"
-      },
-      {
-        "label": "Playing",
-        "value": "Placeholder: the game you are playing"
-      },
-      {
-        "label": "Training",
-        "value": "Placeholder: what training looks like this month"
       }
     ]
   }

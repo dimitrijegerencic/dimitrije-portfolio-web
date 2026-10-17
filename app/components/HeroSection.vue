@@ -10,7 +10,7 @@ const words = computed(() => t('hero.tagline').split(' '))
     aria-labelledby="hero-title"
     class="relative flex min-h-[calc(100svh-6rem)] flex-col overflow-hidden"
   >
-    <div class="relative z-10 mx-auto w-full max-w-7xl px-4 pt-10 sm:px-8 sm:pt-14 lg:pt-16">
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-4 pt-10 sm:px-8 sm:pt-14 lg:my-auto lg:pt-0 lg:pb-[12vh]">
       <div class="max-w-xl lg:max-w-2xl">
         <h1
           id="hero-title"
@@ -72,7 +72,7 @@ const words = computed(() => t('hero.tagline').split(' '))
       </div>
     </div>
 
-    <div class="relative mt-12 h-68 w-full sm:h-88 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:h-[64%]">
+    <div class="relative mt-12 h-68 w-full sm:h-88 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:h-[min(78%,max(64%,26vw))]">
       <MountainRidge
         parallax
         class="size-full"
@@ -86,6 +86,12 @@ const words = computed(() => t('hero.tagline').split(' '))
 [data-word-mask] {
   display: inline-block;
   overflow: hidden;
+  /* Room above for accents like the caron in Š, and below for descenders */
+  padding-top: 0.14em;
+  margin-top: -0.14em;
+  /* Room above for accents like the caron in Š, and below for descenders */
+  padding-top: 0.14em;
+  margin-top: -0.14em;
   padding-bottom: 0.06em;
   margin-bottom: -0.06em;
   vertical-align: top;

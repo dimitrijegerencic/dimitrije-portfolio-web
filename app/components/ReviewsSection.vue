@@ -5,12 +5,15 @@ interface Review {
   name: string
   role: string
   text: string
+  // Like on GitHub: most reviewers approve, some just leave a comment
+  action: 'approved' | 'commented'
 }
 
-const reviews = computed(() => (tm('reviews.items') as unknown as Record<keyof Review, string>[]).map(r => ({
-  name: rt(r.name),
-  role: rt(r.role),
-  text: rt(r.text)
+const reviews = computed(() => (tm('reviews.items') as unknown as Record<keyof Review, string | undefined>[]).map(r => ({
+  name: rt(r.name!),
+  role: rt(r.role!),
+  text: rt(r.text!),
+  action: (r.action ? rt(r.action) : 'approved') as Review['action']
 })))
 
 // Start in the middle so there is a card on each side of the focused one
@@ -111,7 +114,7 @@ function onPointerUp(event: PointerEvent) {
               </span>
               <p class="text-sm leading-snug text-muted">
                 <span class="font-semibold text-highlighted">{{ review.name }}</span>
-                {{ t('reviews.approved') }}
+                {{ t(`reviews.${review.action}`) }}
                 <span class="block">{{ review.role }}</span>
               </p>
             </header>
@@ -120,12 +123,15 @@ function onPointerUp(event: PointerEvent) {
               “{{ review.text }}”
             </blockquote>
 
-            <footer class="mt-6 flex items-center gap-2 border-t border-default pt-4 text-sm font-medium text-[#2DA44E]">
+            <footer
+              class="mt-6 flex items-center gap-2 border-t border-default pt-4 text-sm font-medium"
+              :class="review.action === 'approved' ? 'text-[#2DA44E]' : 'text-muted'"
+            >
               <UIcon
-                name="i-lucide-circle-check"
+                :name="review.action === 'approved' ? 'i-lucide-circle-check' : 'i-lucide-message-square'"
                 class="size-5"
               />
-              {{ t('reviews.badge') }}
+              {{ t(review.action === 'approved' ? 'reviews.badge' : 'reviews.commentBadge') }}
             </footer>
           </article>
         </li>

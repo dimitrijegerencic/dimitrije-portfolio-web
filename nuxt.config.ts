@@ -42,6 +42,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    baseUrl: 'https://dimitrije.io',
     defaultLocale: 'en',
     strategy: 'prefix_except_default',
     detectBrowserLanguage: false,

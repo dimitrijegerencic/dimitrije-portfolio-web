@@ -14,7 +14,7 @@
   },
   "hero": {
     "greeting": "Zdravo, ja sam {name}.",
-    "tagline": "Pravim dio weba koji dodirujete.",
+    "tagline": "Pravim interfejse koji rade.",
     "role": "Frontend developer iz Podgorice.",
     "subtitle": "Već {n}+ godine pretvaram dizajn u brze, pristupačne interfejse koji izdrže i kad ih pravi ljudi počnu koristiti. | Već {n}+ godina pretvaram dizajn u brze, pristupačne interfejse koji izdrže i kad ih pravi ljudi počnu koristiti.",
     "seeWork": "Pogledaj radove",
@@ -201,7 +201,9 @@
     "title": "Pregledano i odobreno.",
     "intro": "Par riječi od ljudi sa kojima sam pravio stvari.",
     "approved": "je odobrio izmjene",
+    "commented": "je ostavio komentar",
     "badge": "Odobreno",
+    "commentBadge": "Komentar",
     "prev": "Prethodna preporuka",
     "next": "Sljedeća preporuka",
     "slide": "Preporuka {n} od {total}",
@@ -214,7 +216,8 @@
       {
         "name": "Kolega 2",
         "role": "Uloga, Kompanija",
-        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom.",
+        "action": "commented"
       },
       {
         "name": "Kolega 3",
@@ -224,38 +227,13 @@
       {
         "name": "Kolega 4",
         "role": "Uloga, Kompanija",
-        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom.",
+        "action": "commented"
       },
       {
         "name": "Kolega 5",
         "role": "Uloga, Kompanija",
         "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
-      }
-    ]
-  },
-  "now": {
-    "title": "Trenutno.",
-    "updated": "Ažurirano u oktobru 2026.",
-    "items": [
-      {
-        "label": "Radim na",
-        "value": "Američkoj healthcare platformi u Codeusu"
-      },
-      {
-        "label": "Učim",
-        "value": "Kako da izvučem najviše iz AI-ja u svakodnevnom radu"
-      },
-      {
-        "label": "Gledam",
-        "value": "Placeholder: film ili serija koju trenutno gledaš"
-      },
-      {
-        "label": "Igram",
-        "value": "Placeholder: igrica koju trenutno igraš"
-      },
-      {
-        "label": "Treniram",
-        "value": "Placeholder: kako izgleda trening ovog mjeseca"
       }
     ]
   }
