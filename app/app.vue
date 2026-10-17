@@ -28,7 +28,12 @@ useSeoMeta({
   title: () => t('meta.title'),
   description: () => t('meta.description', years),
   ogTitle: () => t('meta.title'),
-  ogDescription: () => t('meta.description', years)
+  ogDescription: () => t('meta.description', years),
+  ogImage: 'https://dimitrije.io/og.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Dimitrije Gerenčić, frontend developer from Podgorica, Montenegro',
+  twitterCard: 'summary_large_image'
 })
 </script>
 

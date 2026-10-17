@@ -68,6 +68,24 @@ const words = computed(() => t('hero.tagline').split(' '))
           >
             {{ t('hero.getInTouch') }}
           </UButton>
+
+          <div class="flex items-center gap-1 sm:ml-2">
+            <UButton
+              v-for="social in socials"
+              :key="social.to"
+              :to="social.to"
+              target="_blank"
+              rel="noopener me"
+              :icon="social.icon"
+              :aria-label="social.label"
+              size="xl"
+              color="neutral"
+              variant="ghost"
+              square
+              class="rounded-lg text-muted hover:text-(--brand)"
+              :style="{ '--brand': social.brand }"
+            />
+          </div>
         </div>
       </div>
     </div>

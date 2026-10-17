@@ -142,36 +142,56 @@ onBeforeUnmount(() => {
 
 <style scoped>
 /*
- * Every property has a matching "off" value of the same shape (blur(0), transparent
- * shadows with the same layer count), so the glass fades out smoothly instead of
- * snapping at the end. The panel is always rounded; at the top it is invisible anyway.
+ * Every property has a matching "off" value of the same shape (transparent shadows
+ * with the same layer count), so the glass fades out smoothly instead of snapping
+ * at the end. The panel is always rounded; at the top it is invisible anyway.
  */
 [data-glass] {
+  position: relative;
+  /* Own stacking context, so the frosted layer can sit behind the links */
+  z-index: 0;
   border: 1px solid transparent;
   border-radius: 1rem;
-  background-color: transparent;
   box-shadow:
     inset 0 1px 0 transparent,
     inset 0 -1px 0 transparent,
     0 12px 32px -12px transparent,
     0 2px 6px -2px transparent;
-  -webkit-backdrop-filter: blur(0) saturate(1);
-  backdrop-filter: blur(0) saturate(1);
-  transition-property: height, margin, max-width, background-color, border-color, box-shadow, -webkit-backdrop-filter, backdrop-filter;
+  transition-property: height, margin, max-width, border-color, box-shadow;
+}
+
+/*
+ * The frost lives on its own layer and only its opacity animates. Chrome can drop
+ * the blur when backdrop-filter itself is transitioned, leaving the page sharp
+ * behind a merely tinted panel.
+ */
+[data-glass]::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background-color: color-mix(in oklab, var(--ui-bg) 65%, transparent);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  backdrop-filter: blur(24px) saturate(1.8);
+  opacity: 0;
+  /* Same pace as the panel's duration-500 ease-out */
+  transition: opacity 500ms cubic-bezier(0, 0, 0.2, 1);
+  pointer-events: none;
 }
 
 /* Liquid glass: frosted, slightly saturated backdrop with a lit top edge */
 [data-glass][data-scrolled] {
-  background-color: color-mix(in oklab, var(--ui-bg) 65%, transparent);
   border-color: color-mix(in oklab, var(--ui-text) 10%, transparent);
   box-shadow:
     inset 0 1px 0 color-mix(in oklab, white 35%, transparent),
     inset 0 -1px 0 color-mix(in oklab, var(--ui-text) 4%, transparent),
     0 12px 32px -12px rgb(0 0 0 / 0.28),
     0 2px 6px -2px rgb(0 0 0 / 0.08);
-  /* Safari only knows the prefixed name, and Vue style blocks are not autoprefixed */
-  -webkit-backdrop-filter: blur(24px) saturate(1.8);
-  backdrop-filter: blur(24px) saturate(1.8);
+}
+
+[data-glass][data-scrolled]::before {
+  opacity: 1;
 }
 
 :root.dark [data-glass][data-scrolled] {
@@ -183,7 +203,8 @@ onBeforeUnmount(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-glass] {
+  [data-glass],
+  [data-glass]::before {
     transition: none;
   }
 }

@@ -67,6 +67,7 @@
   },
   "about": {
     "title": "The longer version.",
+    "intro": "My name is {name}.",
     "p1": "I found my way to frontend through games, long before university made it official. Somewhere between figuring out game menus and sitting through lectures, I got hooked on how interfaces work.",
     "p2": "Now I build ones that are useful, intuitive and easy for anyone to pick up, ideally on products that make things a little better for everyone. Mostly frontend, with enough backend to take a feature from the API all the way to the button.",
     "facts": {

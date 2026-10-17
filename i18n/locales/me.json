@@ -67,6 +67,7 @@
   },
   "about": {
     "title": "Duža verzija.",
+    "intro": "Zovem se {name}.",
     "p1": "Do frontenda sam stigao preko igrica, mnogo prije nego što je fakultet to učinio zvaničnim. Negdje između menija u igricama i predavanja zakačio sam se za to kako interfejsi rade.",
     "p2": "Danas pravim one koji su korisni, intuitivni i laki za svakoga, najradije na proizvodima koji svima čine stvari malo boljim. Uglavnom frontend, uz dovoljno backenda da funkcionalnost izguram od API-ja do samog dugmeta.",
     "facts": {

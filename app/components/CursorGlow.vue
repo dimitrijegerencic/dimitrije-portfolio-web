@@ -67,11 +67,13 @@ onBeforeUnmount(() => {
   transition: opacity 0.6s ease;
   background: radial-gradient(
     560px circle at var(--x, 50%) var(--y, 50%),
-    /* The brighter garnet tints white cleanly; the dark one turns muddy under multiply */
-    color-mix(in oklab, var(--color-garnet-400) 13%, transparent),
+    color-mix(in oklab, var(--color-garnet-400) 10%, transparent),
     transparent 65%
   );
-  mix-blend-mode: multiply;
+  /*
+   * No mix-blend-mode: the glow sits behind the content anyway, and a blended layer
+   * stops Chrome from blurring the page behind the header glass.
+   */
 }
 
 :root.dark [data-glow] {
@@ -80,7 +82,6 @@ onBeforeUnmount(() => {
     color-mix(in oklab, var(--ui-primary) 22%, transparent),
     transparent 65%
   );
-  mix-blend-mode: screen;
 }
 
 [data-glow][data-visible] {

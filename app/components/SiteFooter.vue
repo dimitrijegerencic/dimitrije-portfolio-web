@@ -120,7 +120,24 @@ const year = new Date().getFullYear()
     </div>
 
     <div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-x-6 gap-y-5 border-t border-default px-4 py-8 text-sm text-muted sm:px-8">
-      <p>© {{ year }} Dimitrije Gerenčić</p>
+      <div class="flex items-center gap-5">
+        <p>© {{ year }} Dimitrije Gerenčić</p>
+        <a
+          v-for="social in socials"
+          :key="social.to"
+          :href="social.to"
+          target="_blank"
+          rel="noopener me"
+          :aria-label="social.label"
+          :style="{ '--brand': social.brand }"
+          class="rounded-sm transition-colors hover:text-(--brand) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        >
+          <UIcon
+            :name="social.icon"
+            class="block size-5"
+          />
+        </a>
+      </div>
       <p>{{ t('footer.made') }}</p>
     </div>
   </footer>

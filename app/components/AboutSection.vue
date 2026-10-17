@@ -44,6 +44,17 @@ const facts = computed(() => [
         </h2>
 
         <div class="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-muted sm:text-xl">
+          <!-- The only place the full name appears in the page itself -->
+          <i18n-t
+            keypath="about.intro"
+            tag="p"
+            scope="global"
+            class="font-medium text-highlighted"
+          >
+            <template #name>
+              <span class="text-primary">Dimitrije Gerenčić</span>
+            </template>
+          </i18n-t>
           <p
             v-for="key in ['p1', 'p2', 'p3', 'p4']"
             :key="key"
