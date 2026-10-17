@@ -8,35 +8,59 @@ const links = computed(() => [
   { label: t('nav.about'), to: '#about' },
   { label: t('nav.contact'), to: '#contact' }
 ])
+
+// Once the page moves, the bar lifts off into a floating glass panel
+const scrolled = ref(false)
+
+function onScroll() {
+  scrolled.value = window.scrollY > 24
+}
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <header class="relative z-10">
-    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-8">
+  <!-- Fixed height so the page never jumps when the bar changes shape -->
+  <header class="pointer-events-none sticky top-0 z-50 flex h-24 flex-col px-2 sm:px-4">
+    <div
+      data-glass
+      :data-scrolled="scrolled || undefined"
+      class="pointer-events-auto mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-4 duration-500 ease-out sm:px-8"
+      :class="scrolled ? 'mt-3 h-16 max-w-6xl rounded-2xl' : 'h-24'"
+    >
       <NuxtLink
         :to="localePath('/')"
-        class="rounded-sm font-display text-2xl font-extrabold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        :aria-label="t('nav.home')"
+        class="justify-self-start rounded-sm font-display text-3xl font-extrabold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        @click="scrollToTop"
       >
-        {{ t('nav.home') }}
+        DG
       </NuxtLink>
 
       <nav
         :aria-label="t('nav.label')"
-        class="flex items-center gap-1 sm:gap-6"
+        class="hidden items-center gap-10 sm:flex"
       >
         <a
           v-for="link in links"
           :key="link.to"
           :href="link.to"
-          class="hidden rounded-sm text-sm font-medium text-muted transition-colors hover:text-highlighted focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:inline"
+          class="relative rounded-sm py-1 text-base font-medium text-muted transition-colors duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-out hover:text-highlighted hover:after:origin-left hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:after:transition-none"
         >
           {{ link.label }}
         </a>
+      </nav>
 
+      <div class="col-start-3 flex items-center justify-self-end gap-2 sm:gap-5">
         <div
           role="group"
           :aria-label="t('nav.language')"
-          class="flex items-center text-sm font-semibold"
+          class="flex items-center text-base font-semibold"
         >
           <NuxtLink
             v-for="(l, i) in locales"
@@ -58,8 +82,40 @@ const links = computed(() => [
         <UColorModeButton
           color="neutral"
           variant="ghost"
+          size="lg"
         />
-      </nav>
+      </div>
     </div>
   </header>
 </template>
+
+<style scoped>
+[data-glass] {
+  border: 1px solid transparent;
+  transition-property: height, margin, max-width, border-radius, background-color, border-color, box-shadow, backdrop-filter;
+}
+
+/* Liquid glass: frosted, slightly saturated backdrop with a lit top edge */
+[data-glass][data-scrolled] {
+  background-color: color-mix(in oklab, var(--ui-bg) 55%, transparent);
+  border-color: color-mix(in oklab, var(--ui-text) 10%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 35%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, var(--ui-text) 4%, transparent),
+    0 12px 32px -12px rgb(0 0 0 / 0.28),
+    0 2px 6px -2px rgb(0 0 0 / 0.08);
+  backdrop-filter: blur(18px) saturate(1.8);
+}
+
+:root.dark [data-glass][data-scrolled] {
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 14%, transparent),
+    0 12px 32px -12px rgb(0 0 0 / 0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-glass] {
+    transition: none;
+  }
+}
+</style>

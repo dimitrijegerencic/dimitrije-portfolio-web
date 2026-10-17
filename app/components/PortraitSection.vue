@@ -2,7 +2,7 @@
   <section
     id="about"
     :aria-label="$t('nav.about')"
-    class="px-4 py-24 sm:px-8 sm:py-32"
+    class="scroll-mt-20 px-4 py-24 sm:px-8 sm:py-32"
   >
     <img
       src="/dimitrije.webp"

@@ -4,7 +4,7 @@
     "description": "Frontend developer from Podgorica, Montenegro, with 4+ years of building fast, accessible interfaces."
   },
   "nav": {
-    "home": "Home",
+    "home": "Dimitrije Gerenčić, back to top",
     "label": "Main",
     "work": "Work",
     "about": "About",
@@ -21,5 +21,47 @@
   },
   "portrait": {
     "alt": "Dimitrije Gerenčić standing on a city street"
+  },
+  "contact": {
+    "title": "Let's build something.",
+    "intro": "Write me a short note and I'll get back to you.",
+    "greeting": "Hi Dimitrije,",
+    "namePrefix": "My name is",
+    "nameLabel": "Your name",
+    "namePlaceholder": "your name",
+    "topicPrefix": "and I'm writing to you about",
+    "topicLabel": "What it's about",
+    "topics": {
+      "project": "a project",
+      "job": "a job",
+      "other": "something else"
+    },
+    "emailPrefix": "You can reply to me at",
+    "emailLabel": "Your email",
+    "emailPlaceholder": "you{'@'}example.com",
+    "messageLabel": "Your message",
+    "messagePlaceholder": "Tell me what you have in mind. A link, an idea or a rough brief is plenty.",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sent": "Message sent. I'll reply to {email}.",
+    "error": "The message didn't go through. Check your connection and try again.",
+    "errors": {
+      "name": "Add your name so I know who's writing.",
+      "email": "Add an email address I can reply to.",
+      "emailInvalid": "That email address looks incomplete."
+    },
+    "signoff": "Cheers,"
+  },
+  "footer": {
+    "localTime": "Local time in Podgorica",
+    "nav": "Footer",
+    "backToTop": "Back to top",
+    "made": "Designed and built in Podgorica.",
+    "status": {
+      "desk": "At my desk right now.",
+      "evening": "Off for the day. I'll reply tomorrow.",
+      "weekend": "It's the weekend here. I'll reply on Monday.",
+      "night": "Asleep in Podgorica. I'll reply in the morning."
+    }
   }
 }

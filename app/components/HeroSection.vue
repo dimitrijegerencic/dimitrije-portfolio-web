@@ -7,7 +7,7 @@ const words = computed(() => t('hero.tagline').split(' '))
 <template>
   <section
     aria-labelledby="hero-title"
-    class="relative flex min-h-[calc(100svh-5rem)] flex-col overflow-hidden"
+    class="relative flex min-h-[calc(100svh-6rem)] flex-col overflow-hidden"
   >
     <div class="relative z-10 mx-auto w-full max-w-7xl px-4 pt-10 sm:px-8 sm:pt-14 lg:pt-16">
       <div class="max-w-xl lg:max-w-2xl">

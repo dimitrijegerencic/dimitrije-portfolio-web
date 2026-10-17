@@ -1,8 +1,24 @@
 <script setup lang="ts">
-// Contour lines of a stylised ridge: low valley on the left, peaks on the right.
+// Contour lines of a stylised ridge: low valley on one side, peaks on the other.
 // Deterministic so server and client render the same SVG.
+const props = withDefaults(defineProps<{
+  /** Peaks on the left instead of the right */
+  mirror?: boolean
+  /** Wait until the ridge scrolls into view before drawing it */
+  drawOnView?: boolean
+  /** Shift the contour layers slightly with the pointer */
+  parallax?: boolean
+  /** viewBox height; lower values give a flatter, wider ridge */
+  height?: number
+}>(), {
+  mirror: false,
+  drawOnView: false,
+  parallax: false,
+  height: 640
+})
+
 const W = 1600
-const H = 640
+const H = props.height
 const LAYERS = 10
 
 const keyPoints: [number, number][] = [
@@ -13,7 +29,7 @@ const keyPoints: [number, number][] = [
   [1, 0.4]
 ]
 
-function height(t: number) {
+function elevation(t: number) {
   const i = keyPoints.findIndex(([x]) => x >= t)
   if (i <= 0) return keyPoints[0]![1]
   const [x0, y0] = keyPoints[i - 1]!
@@ -23,41 +39,94 @@ function height(t: number) {
   return Math.max(0, base + grain * base)
 }
 
+// The flat valley runs on past the viewBox so wide screens never show an edge
+const EXTEND = 1200
+const start = props.mirror ? 0 : -EXTEND
+const end = props.mirror ? W + EXTEND : W
+
 const lines = Array.from({ length: LAYERS }, (_, layer) => {
   const scale = 1 - layer / LAYERS
   let d = ''
-  for (let x = 0; x <= W; x += 8) {
-    const y = H - height(x / W) * scale * H * 0.92
-    d += `${x === 0 ? 'M' : 'L'}${x} ${y.toFixed(1)}`
+  for (let x = start; x <= end; x += 8) {
+    const t = props.mirror ? 1 - x / W : x / W
+    const y = H - elevation(t) * scale * H * 0.92
+    d += `${x === start ? 'M' : 'L'}${x} ${y.toFixed(1)}`
   }
   return { d, layer }
+})
+
+const root = ref<HTMLDivElement>()
+const svg = ref<SVGSVGElement>()
+const waiting = ref(props.drawOnView)
+
+let observer: IntersectionObserver | undefined
+let frame = 0
+
+function onPointerMove(event: PointerEvent) {
+  cancelAnimationFrame(frame)
+  frame = requestAnimationFrame(() => {
+    const shift = (event.clientX / window.innerWidth - 0.5) * 2
+    svg.value?.style.setProperty('--shift', shift.toFixed(3))
+  })
+}
+
+onMounted(() => {
+  if (props.drawOnView && root.value) {
+    observer = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting) {
+        waiting.value = false
+        observer?.disconnect()
+      }
+    }, { threshold: 0.35 })
+    observer.observe(root.value)
+  }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (props.parallax && !reduce) {
+    window.addEventListener('pointermove', onPointerMove, { passive: true })
+  }
+})
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  cancelAnimationFrame(frame)
+  window.removeEventListener('pointermove', onPointerMove)
 })
 </script>
 
 <template>
-  <svg
-    :viewBox="`0 0 ${W} ${H}`"
-    preserveAspectRatio="xMaxYMax slice"
-    aria-hidden="true"
-    class="text-primary"
+  <div
+    ref="root"
+    class="relative overflow-hidden"
   >
-    <path
-      :d="`${lines[0]!.d}L${W} ${H}L0 ${H}Z`"
-      data-fill
-      stroke="none"
-    />
-    <path
-      v-for="line in lines"
-      :key="line.layer"
-      :d="line.d"
-      pathLength="1"
-      fill="none"
-      stroke="currentColor"
-      stroke-linejoin="round"
-      :stroke-width="line.layer === 0 ? 2.5 : 1.25"
-      :style="{ '--layer': line.layer, 'opacity': line.layer === 0 ? 1 : 0.75 - line.layer * 0.06 }"
-    />
-  </svg>
+    <!-- Sized by height and pinned to the peak side, so the summit is never cropped -->
+    <svg
+      ref="svg"
+      :viewBox="`0 0 ${W} ${H}`"
+      :data-waiting="waiting || undefined"
+      aria-hidden="true"
+      class="absolute bottom-0 h-full w-auto max-w-none overflow-visible text-primary"
+      :class="mirror ? 'left-0' : 'right-0'"
+      :style="{ aspectRatio: `${W} / ${H}` }"
+    >
+      <path
+        :d="`${lines[0]!.d}L${end} ${H}L${start} ${H}Z`"
+        data-fill
+        stroke="none"
+      />
+      <path
+        v-for="line in lines"
+        :key="line.layer"
+        :d="line.d"
+        pathLength="1"
+        fill="none"
+        stroke="currentColor"
+        stroke-linejoin="round"
+        :stroke-width="line.layer === 0 ? 2.5 : 1.25"
+        :style="{ '--layer': line.layer, 'opacity': line.layer === 0 ? 1 : 0.75 - line.layer * 0.06 }"
+      />
+    </svg>
+  </div>
 </template>
 
 <style scoped>
@@ -65,15 +134,27 @@ path[data-fill] {
   fill: color-mix(in oklab, var(--ui-primary) 7%, var(--ui-bg));
 }
 
+/* Deeper layers move further, so the ridge reads as layered terrain */
+path:not([data-fill]) {
+  transform: translateX(calc(var(--shift, 0) * (var(--layer) + 1) * 3px));
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   path[data-fill] {
     opacity: 0;
-    animation: rise 1.2s ease-out 1.1s forwards;
   }
 
   path:not([data-fill]) {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
+  }
+
+  svg:not([data-waiting]) path[data-fill] {
+    animation: rise 1.2s ease-out 1.1s forwards;
+  }
+
+  svg:not([data-waiting]) path:not([data-fill]) {
     animation: draw 2.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
     animation-delay: calc(0.15s + var(--layer) * 0.11s);
   }

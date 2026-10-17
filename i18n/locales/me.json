@@ -4,7 +4,7 @@
     "description": "Frontend developer iz Podgorice sa 4+ godine iskustva u izradi brzih i pristupačnih interfejsa."
   },
   "nav": {
-    "home": "Početna",
+    "home": "Dimitrije Gerenčić, nazad na vrh",
     "label": "Glavna navigacija",
     "work": "Radovi",
     "about": "O meni",
@@ -21,5 +21,47 @@
   },
   "portrait": {
     "alt": "Dimitrije Gerenčić na gradskoj ulici"
+  },
+  "contact": {
+    "title": "Napravimo nešto.",
+    "intro": "Napiši mi kratko pismo i javiću ti se.",
+    "greeting": "Zdravo Dimitrije,",
+    "namePrefix": "Zovem se",
+    "nameLabel": "Tvoje ime",
+    "namePlaceholder": "tvoje ime",
+    "topicPrefix": "i pišem ti zbog",
+    "topicLabel": "Tema poruke",
+    "topics": {
+      "project": "projekta",
+      "job": "posla",
+      "other": "nečeg drugog"
+    },
+    "emailPrefix": "Odgovor mi možeš poslati na",
+    "emailLabel": "Tvoj email",
+    "emailPlaceholder": "ti{'@'}primjer.com",
+    "messageLabel": "Tvoja poruka",
+    "messagePlaceholder": "Napiši šta imaš na umu. Link, ideja ili kratak opis su sasvim dovoljni.",
+    "send": "Pošalji poruku",
+    "sending": "Šaljem…",
+    "sent": "Poruka je poslata. Odgovoriću na {email}.",
+    "error": "Poruka nije poslata. Provjeri konekciju i pokušaj ponovo.",
+    "errors": {
+      "name": "Upiši ime da znam ko mi piše.",
+      "email": "Upiši email na koji mogu da odgovorim.",
+      "emailInvalid": "Ova email adresa nije potpuna."
+    },
+    "signoff": "Pozdrav,"
+  },
+  "footer": {
+    "localTime": "Lokalno vrijeme u Podgorici",
+    "nav": "Podnožje",
+    "backToTop": "Nazad na vrh",
+    "made": "Dizajnirano i napravljeno u Podgorici.",
+    "status": {
+      "desk": "Trenutno sam za računarom.",
+      "evening": "Završio sam za danas. Odgovoriću sjutra.",
+      "weekend": "Ovdje je vikend. Odgovoriću u ponedjeljak.",
+      "night": "Spavam. Odgovoriću ujutru."
+    }
   }
 }

@@ -12,6 +12,19 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // Follow the visitor's OS theme until they pick one with the toggle
+  colorMode: {
+    preference: 'system',
+    fallback: 'light'
+  },
+
+  runtimeConfig: {
+    // Set via NUXT_RESEND_API_KEY, NUXT_CONTACT_TO, NUXT_CONTACT_FROM
+    resendApiKey: '',
+    contactTo: '',
+    contactFrom: ''
+  },
+
   routeRules: {
     '/': { prerender: true },
     '/me': { prerender: true }
