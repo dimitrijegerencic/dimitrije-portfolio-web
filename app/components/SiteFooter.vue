@@ -51,10 +51,12 @@ const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="relative z-10 overflow-hidden bg-garnet-800 text-white dark:bg-garnet-950">
+  <!-- Same tint as the ridge fill, so the mountains stand on the footer like on ground.
+       No z-index: the cursor glow lights it like the ridges. -->
+  <footer class="relative overflow-hidden bg-[color-mix(in_oklab,var(--ui-primary)_7%,var(--ui-bg))] text-highlighted">
     <div class="mx-auto grid max-w-7xl gap-12 px-4 pt-20 pb-16 sm:grid-cols-3 sm:px-8 sm:pt-28 sm:pb-20">
       <div>
-        <p class="text-sm text-white/65">
+        <p class="text-sm text-muted">
           {{ t('footer.localTime') }}
         </p>
         <p class="mt-1 font-display text-5xl font-bold tabular-nums">
@@ -66,7 +68,7 @@ const year = new Date().getFullYear()
         </p>
         <p
           v-if="status"
-          class="mt-3 flex items-center gap-2.5 text-sm text-white/80"
+          class="mt-3 flex items-center gap-2.5 text-sm text-toned"
         >
           <span
             aria-hidden="true"
@@ -74,11 +76,11 @@ const year = new Date().getFullYear()
           >
             <span
               v-if="status === 'desk'"
-              class="absolute inset-0 animate-ping rounded-full bg-white/70 motion-reduce:animate-none"
+              class="absolute inset-0 animate-ping rounded-full bg-primary/60 motion-reduce:animate-none"
             />
             <span
               class="relative size-2 rounded-full"
-              :class="status === 'desk' ? 'bg-white' : 'bg-white/35'"
+              :class="status === 'desk' ? 'bg-primary' : 'bg-accented'"
             />
           </span>
           {{ t(`footer.status.${status}`) }}
@@ -93,7 +95,7 @@ const year = new Date().getFullYear()
           v-for="link in links"
           :key="link.to"
           :href="link.to"
-          class="w-fit rounded-sm text-lg font-medium text-white/80 underline-offset-8 transition-colors hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          class="w-fit rounded-sm text-lg font-medium text-toned underline-offset-8 transition-colors hover:text-highlighted hover:underline hover:decoration-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
         >
           {{ link.label }}
         </a>
@@ -102,11 +104,11 @@ const year = new Date().getFullYear()
       <div class="flex sm:justify-end">
         <button
           type="button"
-          class="group flex h-fit items-center gap-3 rounded-full border border-white/30 py-2 pr-2 pl-5 text-base font-medium transition-colors hover:border-white hover:bg-white hover:text-garnet-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white dark:hover:text-garnet-950"
+          class="group flex h-fit cursor-pointer items-center gap-3 rounded-full border border-accented py-2 pr-2 pl-5 text-base font-medium transition-colors hover:border-primary hover:bg-primary hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
           @click="scrollToTop"
         >
           {{ t('footer.backToTop') }}
-          <span class="grid size-9 place-items-center rounded-full bg-white/15 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:bg-garnet-800/10 motion-reduce:transition-none">
+          <span class="grid size-9 place-items-center rounded-full bg-primary/10 text-primary transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:bg-white/15 group-hover:text-white motion-reduce:transition-none">
             <UIcon
               name="i-lucide-arrow-up"
               class="size-5"
@@ -116,7 +118,7 @@ const year = new Date().getFullYear()
       </div>
     </div>
 
-    <div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-x-6 gap-y-5 border-t border-white/15 px-4 py-8 text-sm text-white/65 sm:px-8">
+    <div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-x-6 gap-y-5 border-t border-default px-4 py-8 text-sm text-muted sm:px-8">
       <p>© {{ year }} Dimitrije Gerenčić</p>
       <p>{{ t('footer.made') }}</p>
     </div>

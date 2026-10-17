@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// A soft garnet light that trails the pointer. It sits above the ridges but below the
+// A soft garnet light that trails the pointer. It sits above the ridges and footer but below the
 // content layers (z-10), so it lights the mountains and never the photo or text.
 // Mouse and trackpad only.
 const glow = ref<HTMLDivElement>()
