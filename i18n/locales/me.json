@@ -81,5 +81,13 @@
     },
     "p3": "Na poslu sam najbolji u timu gdje se ideje dijele i ljudi stvarno razgovaraju, na projektima na koje se ljudi oslanjaju, od zdravstva do aplikacija koje otvaraju svaki dan.",
     "p4": "Van posla čitam o novim tehnologijama, pratim kuda ide AI, treniram, igram igrice i gledam dosta filmova. Biranje filma mi obično traje duže od samog gledanja."
+  },
+  "stack": {
+    "title": "Šta je u stacku.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "state": "Stanje i prevodi",
+    "tooling": "Alati",
+    "ai": "AI"
   }
 }

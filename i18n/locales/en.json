@@ -81,5 +81,13 @@
     },
     "p3": "At work I do my best in a team where ideas get shared and people actually talk to each other, on projects people rely on, from healthcare to the apps they open every day.",
     "p4": "Off the clock I read about new tech, keep an eye on where AI is heading, train, play games and watch a lot of films. Choosing one usually takes longer than watching it."
+  },
+  "stack": {
+    "title": "What's in the stack.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "state": "State & i18n",
+    "tooling": "Tooling",
+    "ai": "AI"
   }
 }
