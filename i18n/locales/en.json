@@ -66,15 +66,20 @@
   },
   "about": {
     "title": "The longer version.",
-    "p1": "Placeholder: two or three sentences about how you got into frontend and what you enjoy building most. This paragraph reads best at around three lines.",
-    "p2": "Placeholder: what you work with day to day, the kind of teams and projects you like, and what you do when you step away from the screen.",
+    "p1": "I found my way to frontend through games, long before university made it official. Somewhere between figuring out game menus and sitting through lectures, I got hooked on how interfaces work.",
+    "p2": "Now I build ones that are useful, intuitive and easy for anyone to pick up, ideally on products that make things a little better for everyone. Mostly frontend, with enough backend to take a feature from the API all the way to the button.",
     "facts": {
       "basedLabel": "Based in",
       "based": "Podgorica",
       "experienceLabel": "Experience",
       "experience": "{n}+ years",
       "focusLabel": "Focus",
-      "focus": "Frontend"
-    }
+      "focus": "Frontend",
+      "filmsLabel": "Films watched",
+      "films": "800+",
+      "filmsNote": "Watchlist still winning."
+    },
+    "p3": "At work I do my best in a team where ideas get shared and people actually talk to each other, on projects people rely on, from healthcare to the apps they open every day.",
+    "p4": "Off the clock I read about new tech, keep an eye on where AI is heading, train, play games and watch a lot of films. Choosing one usually takes longer than watching it."
   }
 }

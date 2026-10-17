@@ -66,15 +66,20 @@
   },
   "about": {
     "title": "Duža verzija.",
-    "p1": "Placeholder: dvije-tri rečenice o tome kako si počeo sa frontendom i šta najviše voliš da praviš. Ovaj pasus najbolje izgleda u oko tri reda.",
-    "p2": "Placeholder: sa čim radiš svakodnevno, kakvi timovi i projekti ti odgovaraju i šta radiš kad nisi za ekranom.",
+    "p1": "Do frontenda sam stigao preko igrica, mnogo prije nego što je fakultet to učinio zvaničnim. Negdje između menija u igricama i predavanja zakačio sam se za to kako interfejsi rade.",
+    "p2": "Danas pravim one koji su korisni, intuitivni i laki za svakoga, najradije na proizvodima koji svima čine stvari malo boljim. Uglavnom frontend, uz dovoljno backenda da funkcionalnost izguram od API-ja do samog dugmeta.",
     "facts": {
       "basedLabel": "Živim u",
       "based": "Podgorici",
       "experienceLabel": "Iskustvo",
       "experience": "{n}+ godine | {n}+ godina",
       "focusLabel": "Fokus",
-      "focus": "Frontend"
-    }
+      "focus": "Frontend",
+      "filmsLabel": "Pogledanih filmova",
+      "films": "800+",
+      "filmsNote": "Lista za gledanje i dalje vodi."
+    },
+    "p3": "Na poslu sam najbolji u timu gdje se ideje dijele i ljudi stvarno razgovaraju, na projektima na koje se ljudi oslanjaju, od zdravstva do aplikacija koje otvaraju svaki dan.",
+    "p4": "Van posla čitam o novim tehnologijama, pratim kuda ide AI, treniram, igram igrice i gledam dosta filmova. Biranje filma mi obično traje duže od samog gledanja."
   }
 }

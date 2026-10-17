@@ -5,7 +5,8 @@ const years = useExperienceYears()
 const facts = computed(() => [
   { label: t('about.facts.basedLabel'), value: t('about.facts.based') },
   { label: t('about.facts.experienceLabel'), value: t('about.facts.experience', years) },
-  { label: t('about.facts.focusLabel'), value: t('about.facts.focus') }
+  { label: t('about.facts.focusLabel'), value: t('about.facts.focus') },
+  { label: t('about.facts.filmsLabel'), value: t('about.facts.films'), note: t('about.facts.filmsNote') }
 ])
 </script>
 
@@ -42,11 +43,15 @@ const facts = computed(() => [
         </h2>
 
         <div class="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-muted sm:text-xl">
-          <p>{{ t('about.p1') }}</p>
-          <p>{{ t('about.p2') }}</p>
+          <p
+            v-for="key in ['p1', 'p2', 'p3', 'p4']"
+            :key="key"
+          >
+            {{ t(`about.${key}`) }}
+          </p>
         </div>
 
-        <dl class="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-default pt-6">
+        <dl class="mt-12 grid max-w-2xl grid-cols-2 gap-6 border-t border-default pt-6 sm:grid-cols-4">
           <div
             v-for="fact in facts"
             :key="fact.label"
@@ -56,6 +61,12 @@ const facts = computed(() => [
             </dt>
             <dd class="mt-1 font-display text-2xl font-bold text-highlighted sm:text-3xl">
               {{ fact.value }}
+            </dd>
+            <dd
+              v-if="fact.note"
+              class="mt-1 text-xs text-muted"
+            >
+              {{ fact.note }}
             </dd>
           </div>
         </dl>
