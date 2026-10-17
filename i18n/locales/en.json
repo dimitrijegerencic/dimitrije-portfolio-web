@@ -89,5 +89,82 @@
     "state": "State & i18n",
     "tooling": "Tooling",
     "ai": "AI"
+  },
+  "work": {
+    "title": "Work so far.",
+    "now": "now",
+    "roles": {
+      "codeus": {
+        "role": "Fullstack Developer, full-time",
+        "summary": "Software agency from Podgorica building scalable web and mobile apps for startups and companies.",
+        "projects": [
+          {
+            "name": "US healthcare platform",
+            "description": "A platform for the US healthcare system where doctors and patients pull in and manage their data from their own hospitals. Doctors can also query the patients enrolled in their research projects and pull statistics from the results.",
+            "tech": [
+              "Vue",
+              "Vuetify",
+              "Pinia",
+              "TypeScript"
+            ],
+            "features": [
+              {
+                "name": "Three sub-portals",
+                "description": "Separate portals for doctors, patients and researchers, each shaped around how they actually work. Built with Vue, Vuetify, Pinia and TypeScript."
+              },
+              {
+                "name": "HIPAA-compliant AI chat",
+                "description": "An AI assistant built right into the platform, used by both doctors and patients. It meets HIPAA requirements, so health data stays protected the whole way through."
+              }
+            ]
+          }
+        ]
+      },
+      "amplitudo": {
+        "role": "Fullstack Academy attendee",
+        "summary": "A hands-on academy where I went from the basics to shipping a full project.",
+        "projects": [
+          {
+            "name": "Fundamentals",
+            "description": "Built a solid base in how the web works, from markup and styling to scripting and server-side code.",
+            "tech": [
+              "HTML",
+              "CSS",
+              "JavaScript",
+              "PHP"
+            ],
+            "features": []
+          },
+          {
+            "name": "Academy project",
+            "description": "A full project built from scratch, with a React frontend talking to a Laravel API.",
+            "tech": [
+              "React",
+              "Laravel"
+            ],
+            "features": []
+          }
+        ]
+      },
+      "ucg": {
+        "company": "University of Montenegro",
+        "role": "BSc in Computer Science",
+        "summary": "Three years of Computer Science, a lot of late-night coding and a degree finished on time.",
+        "projects": [
+          {
+            "name": "Core curriculum",
+            "description": "Algorithms and data structures, object-oriented programming, databases, computer networks, operating systems and software engineering. The groundwork every interface I build still sits on.",
+            "tech": [],
+            "features": []
+          },
+          {
+            "name": "Where it clicked",
+            "description": "The web development courses were where it all came together for me. Seeing code turn into something people could actually click and use is what pointed me towards frontend.",
+            "tech": [],
+            "features": []
+          }
+        ]
+      }
+    }
   }
 }

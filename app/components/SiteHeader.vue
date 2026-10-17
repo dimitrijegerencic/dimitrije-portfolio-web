@@ -12,16 +12,69 @@ const links = computed(() => [
 // Once the page moves, the bar lifts off into a floating glass panel
 const scrolled = ref(false)
 
+// Scroll spy: the link for the section crossing the middle of the screen is marked active.
+// The stack section belongs to About, so it keeps About lit.
+const sectionToLink: Record<string, string> = {
+  about: '#about',
+  stack: '#about',
+  work: '#work',
+  contact: '#contact'
+}
+const active = ref<string>()
+
+// After a nav click the target stays lit while the page glides there,
+// so sections passed on the way (e.g. About on the way to Work) don't flash active
+let locked = false
+let unlockTimer: ReturnType<typeof setTimeout> | undefined
+
+function scheduleUnlock() {
+  clearTimeout(unlockTimer)
+  unlockTimer = setTimeout(() => {
+    locked = false
+    updateActive()
+  }, 150)
+}
+
+function updateActive() {
+  if (locked) return
+  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+  if (atBottom) {
+    active.value = '#contact'
+    return
+  }
+  const middle = window.innerHeight / 2
+  let current: string | undefined
+  for (const id of Object.keys(sectionToLink)) {
+    const rect = document.getElementById(id)?.getBoundingClientRect()
+    if (rect && rect.top <= middle && rect.bottom > middle) current = sectionToLink[id]
+  }
+  active.value = current
+}
+
 function onScroll() {
   scrolled.value = window.scrollY > 24
+  if (locked) scheduleUnlock()
+  else updateActive()
+}
+
+function onNavClick(to: string) {
+  active.value = to
+  locked = true
+  // Unlocks once scrolling settles, or right away if the page didn't need to move
+  scheduleUnlock()
 }
 
 onMounted(() => {
   onScroll()
   window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', updateActive, { passive: true })
 })
 
-onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+onBeforeUnmount(() => {
+  clearTimeout(unlockTimer)
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', updateActive)
+})
 </script>
 
 <template>
@@ -50,7 +103,9 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
           v-for="link in links"
           :key="link.to"
           :href="link.to"
-          class="relative rounded-sm py-1 text-base font-medium text-muted transition-colors duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-out hover:text-highlighted hover:after:origin-left hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:after:transition-none"
+          :aria-current="active === link.to ? 'location' : undefined"
+          class="relative rounded-sm py-1 text-base font-medium text-muted transition-colors duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-out hover:text-highlighted hover:after:origin-left hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:after:transition-none aria-[current]:text-highlighted aria-[current]:after:scale-x-100"
+          @click="onNavClick(link.to)"
         >
           {{ link.label }}
         </a>

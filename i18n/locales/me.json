@@ -89,5 +89,82 @@
     "state": "Stanje i prevodi",
     "tooling": "Alati",
     "ai": "AI"
+  },
+  "work": {
+    "title": "Dosadašnji rad.",
+    "now": "danas",
+    "roles": {
+      "codeus": {
+        "role": "Fullstack Developer, puno radno vrijeme",
+        "summary": "Agencija iz Podgorice koja pravi skalabilne web i mobilne aplikacije za startupove i kompanije.",
+        "projects": [
+          {
+            "name": "Američka healthcare platforma",
+            "description": "Platforma za američki zdravstveni sistem preko koje doktori i pacijenti povlače svoje podatke iz bolnica i upravljaju njima. Doktori mogu i da pretražuju pacijente uključene u svoja istraživanja i izvlače statistiku iz rezultata.",
+            "tech": [
+              "Vue",
+              "Vuetify",
+              "Pinia",
+              "TypeScript"
+            ],
+            "features": [
+              {
+                "name": "Tri podportala",
+                "description": "Posebni portali za doktore, pacijente i istraživače, svaki prilagođen tome kako zaista rade. Napravljeni u Vue-u, Vuetify-ju, Pinii i TypeScriptu."
+              },
+              {
+                "name": "HIPAA AI chat",
+                "description": "AI asistent integrisan direktno u platformu, koji koriste i doktori i pacijenti. Usklađen je sa HIPAA standardom, pa zdravstveni podaci ostaju zaštićeni na svakom koraku."
+              }
+            ]
+          }
+        ]
+      },
+      "amplitudo": {
+        "role": "Polaznik Fullstack akademije",
+        "summary": "Praktična akademija na kojoj sam od osnova stigao do kompletnog projekta.",
+        "projects": [
+          {
+            "name": "Osnove",
+            "description": "Postavio sam čvrstu osnovu o tome kako web radi, od markupa i stilova do skriptovanja i serverskog koda.",
+            "tech": [
+              "HTML",
+              "CSS",
+              "JavaScript",
+              "PHP"
+            ],
+            "features": []
+          },
+          {
+            "name": "Projekat sa akademije",
+            "description": "Kompletan projekat napravljen od nule, sa React frontendom koji komunicira sa Laravel API-jem.",
+            "tech": [
+              "React",
+              "Laravel"
+            ],
+            "features": []
+          }
+        ]
+      },
+      "ucg": {
+        "company": "Univerzitet Crne Gore",
+        "role": "Osnovne studije, Računarske nauke",
+        "summary": "Tri godine računarskih nauka, dosta noćnog kodiranja i diploma završena u roku.",
+        "projects": [
+          {
+            "name": "Osnovni predmeti",
+            "description": "Algoritmi i strukture podataka, objektno-orijentisano programiranje, baze podataka, računarske mreže, operativni sistemi i softversko inženjerstvo. Osnova na kojoj i danas stoji svaki interfejs koji pravim.",
+            "tech": [],
+            "features": []
+          },
+          {
+            "name": "Gdje je kliknulo",
+            "description": "Na predmetima iz web razvoja se sve složilo. Kad sam vidio kako se kod pretvara u nešto što ljudi mogu da kliknu i koriste, znao sam da je frontend moj pravac.",
+            "tech": [],
+            "features": []
+          }
+        ]
+      }
+    }
   }
 }
