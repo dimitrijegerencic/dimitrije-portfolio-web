@@ -195,5 +195,67 @@
         ]
       }
     }
+  },
+  "reviews": {
+    "title": "Pregledano i odobreno.",
+    "intro": "Par riječi od ljudi sa kojima sam pravio stvari.",
+    "approved": "je odobrio izmjene",
+    "badge": "Odobreno",
+    "prev": "Prethodna preporuka",
+    "next": "Sljedeća preporuka",
+    "slide": "Preporuka {n} od {total}",
+    "items": [
+      {
+        "name": "Kolega 1",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+      },
+      {
+        "name": "Kolega 2",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+      },
+      {
+        "name": "Kolega 3",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+      },
+      {
+        "name": "Kolega 4",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+      },
+      {
+        "name": "Kolega 5",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+      }
+    ]
+  },
+  "now": {
+    "title": "Trenutno.",
+    "updated": "Ažurirano u oktobru 2026.",
+    "items": [
+      {
+        "label": "Radim na",
+        "value": "Američkoj healthcare platformi u Codeusu"
+      },
+      {
+        "label": "Učim",
+        "value": "Kako da izvučem najviše iz AI-ja u svakodnevnom radu"
+      },
+      {
+        "label": "Gledam",
+        "value": "Placeholder: film ili serija koju trenutno gledaš"
+      },
+      {
+        "label": "Igram",
+        "value": "Placeholder: igrica koju trenutno igraš"
+      },
+      {
+        "label": "Treniram",
+        "value": "Placeholder: kako izgleda trening ovog mjeseca"
+      }
+    ]
   }
 }

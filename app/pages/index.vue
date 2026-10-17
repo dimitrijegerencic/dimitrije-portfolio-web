@@ -4,6 +4,8 @@
     <AboutSection />
     <StackSection />
     <WorkSection />
+    <ReviewsSection />
+    <NowSection />
     <ContactSection />
   </div>
 </template>
