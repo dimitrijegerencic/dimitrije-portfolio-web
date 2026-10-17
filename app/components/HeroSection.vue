@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const years = useExperienceYears()
 
 const words = computed(() => t('hero.tagline').split(' '))
 </script>
@@ -47,7 +48,7 @@ const words = computed(() => t('hero.tagline').split(' '))
 
         <p class="mt-8 max-w-136 text-lg leading-relaxed text-muted sm:text-xl">
           <span class="block">{{ t('hero.role') }}</span>
-          <span class="block">{{ t('hero.subtitle') }}</span>
+          <span class="block">{{ t('hero.subtitle', years) }}</span>
         </p>
 
         <div class="mt-10 flex flex-wrap gap-3">
@@ -72,7 +73,10 @@ const words = computed(() => t('hero.tagline').split(' '))
     </div>
 
     <div class="relative mt-12 h-68 w-full sm:h-88 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:h-[64%]">
-      <MountainRidge class="size-full" />
+      <MountainRidge
+        parallax
+        class="size-full"
+      />
     </div>
   </section>
 </template>

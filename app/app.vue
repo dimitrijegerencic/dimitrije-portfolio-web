@@ -2,6 +2,7 @@
 import { en, hr } from '@nuxt/ui/locale'
 
 const { t, locale } = useI18n()
+const years = useExperienceYears()
 const i18nHead = useLocaleHead()
 
 // Nuxt UI has no Montenegrin strings; Croatian is the closest Latin-script match
@@ -12,7 +13,10 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: () => [
-    { rel: 'icon', href: '/favicon.ico' },
+    // SVG follows the browser's light/dark theme; the ICO is the fallback for browsers without SVG icons
+    { rel: 'icon', href: '/favicon.ico', sizes: '32x32' },
+    { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+    { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
     ...(i18nHead.value.link ?? [])
   ],
   htmlAttrs: {
@@ -22,9 +26,9 @@ useHead({
 
 useSeoMeta({
   title: () => t('meta.title'),
-  description: () => t('meta.description'),
+  description: () => t('meta.description', years),
   ogTitle: () => t('meta.title'),
-  ogDescription: () => t('meta.description')
+  ogDescription: () => t('meta.description', years)
 })
 </script>
 
@@ -37,5 +41,7 @@ useSeoMeta({
     </main>
 
     <SiteFooter />
+
+    <CursorGlow />
   </UApp>
 </template>

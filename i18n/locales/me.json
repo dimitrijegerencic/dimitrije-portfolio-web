@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Dimitrije Gerenčić, Frontend Developer",
-    "description": "Frontend developer iz Podgorice sa 4+ godine iskustva u izradi brzih i pristupačnih interfejsa."
+    "description": "Frontend developer iz Podgorice sa {n}+ godine iskustva u izradi brzih i pristupačnih interfejsa. | Frontend developer iz Podgorice sa {n}+ godina iskustva u izradi brzih i pristupačnih interfejsa."
   },
   "nav": {
     "home": "Dimitrije Gerenčić, nazad na vrh",
@@ -15,7 +15,7 @@
     "greeting": "Zdravo, ja sam {name}.",
     "tagline": "Pravim dio weba koji dodirujete.",
     "role": "Frontend developer iz Podgorice.",
-    "subtitle": "Već 4+ godine pretvaram dizajn u brze, pristupačne interfejse koji izdrže i kad ih pravi ljudi počnu koristiti.",
+    "subtitle": "Već {n}+ godine pretvaram dizajn u brze, pristupačne interfejse koji izdrže i kad ih pravi ljudi počnu koristiti. | Već {n}+ godina pretvaram dizajn u brze, pristupačne interfejse koji izdrže i kad ih pravi ljudi počnu koristiti.",
     "seeWork": "Pogledaj radove",
     "getInTouch": "Javi se"
   },
@@ -72,7 +72,7 @@
       "basedLabel": "Živim u",
       "based": "Podgorici",
       "experienceLabel": "Iskustvo",
-      "experience": "4+ godine",
+      "experience": "{n}+ godine | {n}+ godina",
       "focusLabel": "Fokus",
       "focus": "Frontend"
     }

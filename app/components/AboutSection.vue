@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const years = useExperienceYears()
 
 const facts = computed(() => [
   { label: t('about.facts.basedLabel'), value: t('about.facts.based') },
-  { label: t('about.facts.experienceLabel'), value: t('about.facts.experience') },
+  { label: t('about.facts.experienceLabel'), value: t('about.facts.experience', years) },
   { label: t('about.facts.focusLabel'), value: t('about.facts.focus') }
 ])
 </script>
@@ -14,7 +15,7 @@ const facts = computed(() => [
     aria-labelledby="about-title"
     class="scroll-mt-20 py-24 sm:py-32"
   >
-    <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
+    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
       <!-- The photo has no hard edge: it dissolves into the page over a faint garnet glow -->
       <div class="relative mx-auto w-full max-w-md lg:max-w-none">
         <div

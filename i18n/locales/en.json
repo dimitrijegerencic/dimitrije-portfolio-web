@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Dimitrije Gerenčić, Frontend Developer",
-    "description": "Frontend developer from Podgorica, Montenegro, with 4+ years of building fast, accessible interfaces."
+    "description": "Frontend developer from Podgorica, Montenegro, with {n}+ years of building fast, accessible interfaces."
   },
   "nav": {
     "home": "Dimitrije Gerenčić, back to top",
@@ -15,7 +15,7 @@
     "greeting": "Hi, I'm {name}.",
     "tagline": "I build the part of the web you touch.",
     "role": "Frontend developer from Podgorica, Montenegro.",
-    "subtitle": "For 4+ years I've been turning designs into fast, accessible interfaces that hold up once real people start clicking.",
+    "subtitle": "For {n}+ years I've been turning designs into fast, accessible interfaces that hold up once real people start clicking.",
     "seeWork": "See my work",
     "getInTouch": "Get in touch"
   },
@@ -72,7 +72,7 @@
       "basedLabel": "Based in",
       "based": "Podgorica",
       "experienceLabel": "Experience",
-      "experience": "4+ years",
+      "experience": "{n}+ years",
       "focusLabel": "Focus",
       "focus": "Frontend"
     }
