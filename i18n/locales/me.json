@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "title": "Dimitrije Gerenčić",
+    "description": "Frontend developer iz Podgorice sa {n}+ godine iskustva u izradi brzih i pristupačnih interfejsa. | Frontend developer iz Podgorice sa {n}+ godina iskustva u izradi brzih i pristupačnih interfejsa."
+  },
+  "nav": {
+    "home": "Dimitrije Gerenčić, nazad na vrh",
+    "label": "Glavna navigacija",
+    "work": "Radovi",
+    "reviews": "Preporuke",
+    "about": "O meni",
+    "contact": "Kontakt",
+    "language": "Jezik"
+  },
+  "hero": {
+    "greeting": "Zdravo, ja sam {name}.",
+    "tagline": "Pravim interfejse koji rade.",
+    "role": "Frontend developer iz Podgorice.",
+    "subtitle": "Već {n}+ godine pretvaram dizajn u brze, pristupačne interfejse koji izdrže i kad ih pravi ljudi počnu koristiti. | Već {n}+ godina pretvaram dizajn u brze, pristupačne interfejse koji izdrže i kad ih pravi ljudi počnu koristiti.",
+    "seeWork": "Pogledaj radove",
+    "getInTouch": "Javi se"
+  },
+  "portrait": {
+    "alt": "Dimitrije Gerenčić na gradskoj ulici"
+  },
+  "contact": {
+    "title": "Napravimo nešto.",
+    "intro": "Napiši mi kratko pismo i javiću ti se.",
+    "greeting": "Zdravo Dimitrije,",
+    "namePrefix": "Zovem se",
+    "nameLabel": "Tvoje ime",
+    "namePlaceholder": "tvoje ime",
+    "topicPrefix": "i pišem ti zbog",
+    "topicLabel": "Tema poruke",
+    "topics": {
+      "project": "projekta",
+      "job": "posla",
+      "other": "nečeg drugog"
+    },
+    "emailPrefix": "Odgovor mi možeš poslati na",
+    "emailLabel": "Tvoj email",
+    "emailPlaceholder": "ti{'@'}primjer.com",
+    "messageLabel": "Tvoja poruka",
+    "messagePlaceholder": "Napiši šta imaš na umu. Link, ideja ili kratak opis su sasvim dovoljni.",
+    "send": "Pošalji poruku",
+    "sending": "Šaljem…",
+    "sent": "Poruka je poslata. Odgovoriću na {email}.",
+    "error": "Poruka nije poslata. Provjeri konekciju i pokušaj ponovo.",
+    "errors": {
+      "name": "Upiši ime da znam ko mi piše.",
+      "email": "Upiši email na koji mogu da odgovorim.",
+      "emailInvalid": "Ova email adresa nije potpuna."
+    },
+    "signoff": "Pozdrav,"
+  },
+  "footer": {
+    "localTime": "Lokalno vrijeme u Podgorici",
+    "nav": "Podnožje",
+    "backToTop": "Nazad na vrh",
+    "made": "Dizajnirano i napravljeno u Podgorici.",
+    "status": {
+      "desk": "Trenutno sam za računarom.",
+      "evening": "Završio sam za danas. Odgovoriću sjutra.",
+      "weekend": "Ovdje je vikend. Odgovoriću u ponedjeljak.",
+      "night": "Spavam. Odgovoriću ujutru."
+    }
+  },
+  "about": {
+    "title": "Duža verzija.",
+    "intro": "Zovem se {name}.",
+    "p1": "Do frontenda sam stigao preko igrica, mnogo prije nego što je fakultet to učinio zvaničnim. Negdje između menija u igricama i predavanja zakačio sam se za to kako interfejsi rade.",
+    "p2": "Danas pravim one koji su korisni, intuitivni i laki za svakoga, najradije na proizvodima koji svima čine stvari malo boljim. Uglavnom frontend, uz dovoljno backenda da funkcionalnost izguram od API-ja do samog dugmeta.",
+    "facts": {
+      "basedLabel": "Živim u",
+      "based": "Podgorici",
+      "experienceLabel": "Iskustvo",
+      "experience": "{n}+ godine | {n}+ godina",
+      "focusLabel": "Fokus",
+      "focus": "Frontend",
+      "filmsLabel": "Pogledanih filmova",
+      "films": "800+",
+      "filmsNote": "Lista za gledanje i dalje vodi."
+    },
+    "p3": "Na poslu sam najbolji u timu gdje se ideje dijele i ljudi stvarno razgovaraju, na projektima na koje se ljudi oslanjaju, od zdravstva do aplikacija koje otvaraju svaki dan.",
+    "p4": "Van posla čitam o novim tehnologijama, pratim kuda ide AI, treniram, igram igrice i gledam dosta filmova. Biranje filma mi obično traje duže od samog gledanja."
+  },
+  "stack": {
+    "title": "Šta je u stacku.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "state": "Stanje i prevodi",
+    "tooling": "Alati",
+    "ai": "AI"
+  },
+  "work": {
+    "title": "Dosadašnji rad.",
+    "now": "danas",
+    "roles": {
+      "codeus": {
+        "role": "Frontend Developer, puno radno vrijeme",
+        "summary": "Agencija iz Podgorice koja pravi skalabilne web i mobilne aplikacije za startupove i kompanije.",
+        "projects": [
+          {
+            "name": "Američka healthcare platforma",
+            "description": "Platforma za američki zdravstveni sistem preko koje doktori i pacijenti povlače svoje podatke iz bolnica i upravljaju njima. Doktori mogu i da pretražuju pacijente uključene u svoja istraživanja i izvlače statistiku iz rezultata.",
+            "tech": [
+              "Vue",
+              "Vuetify",
+              "Pinia",
+              "TypeScript"
+            ],
+            "features": [
+              {
+                "name": "Tri podportala",
+                "description": "Posebni portali za doktore, pacijente i istraživače, svaki prilagođen tome kako zaista rade. Napravljeni u Vue-u, Vuetify-ju, Pinii i TypeScriptu."
+              },
+              {
+                "name": "HIPAA AI chat",
+                "description": "AI asistent integrisan direktno u platformu, koji koriste i doktori i pacijenti. Usklađen je sa HIPAA standardom, pa zdravstveni podaci ostaju zaštićeni na svakom koraku."
+              }
+            ]
+          },
+          {
+            "name": "Codeus korporativni sajt",
+            "description": "Sajt same kompanije. Dvojezičan, sa svijetlom i tamnom temom, i napravljen da se lako pronađe: SEO i GEO se prate, pa se sajt pojavljuje i u rezultatima pretrage i u odgovorima AI alata.",
+            "tech": [
+              "Nuxt",
+              "Nuxt UI",
+              "i18n"
+            ],
+            "features": [
+              {
+                "name": "SEO i GEO",
+                "description": "Strukturirani podaci, sitemap, hreflang za oba jezika i generisane slike za dijeljenje, pa sajt dobro razumiju i pretraživači i AI alati."
+              },
+              {
+                "name": "UI/UX",
+                "description": "Interfejs napravljen u Nuxt UI, sa optimizovanim slikama, glatkim prelazom između svijetle i tamne teme i rasporedom koji radi od telefona do širokog ekrana."
+              }
+            ]
+          },
+          {
+            "name": "Platforma za marketing agenciju",
+            "description": "Interna platforma za marketing agenciju, napravljena da njihov svakodnevni rad bude na jednom mjestu: planiranje i praćenje kampanja, upravljanje oglasima na više kanala i vođenje evidencije o klijentima i korisnicima.\n\nRiječ je o naslijeđenom legacy projektu u Vue 2, Vuex-u i čistom JavaScriptu, a uprkos starijoj arhitekturi sistem je radio i održavan je jednako stabilno kao da je napravljen na najnovijim tehnologijama.",
+            "tech": [
+              "Vue 2",
+              "Vuex",
+              "JavaScript"
+            ],
+            "features": []
+          }
+        ]
+      },
+      "amplitudo": {
+        "role": "Polaznik Fullstack akademije",
+        "summary": "Praktična akademija na kojoj sam od osnova stigao do kompletnog projekta.",
+        "projects": [
+          {
+            "name": "Osnove",
+            "description": "Postavio sam čvrstu osnovu o tome kako web radi, od markupa i stilova do skriptovanja i serverskog koda.",
+            "tech": [
+              "HTML",
+              "CSS",
+              "JavaScript",
+              "PHP"
+            ],
+            "features": []
+          },
+          {
+            "name": "Projekat sa akademije",
+            "description": "Kompletan projekat napravljen od nule, sa React frontendom koji komunicira sa Laravel API-jem.",
+            "tech": [
+              "React",
+              "Laravel"
+            ],
+            "features": []
+          }
+        ]
+      },
+      "ucg": {
+        "company": "Univerzitet Crne Gore",
+        "role": "Osnovne studije, Računarske nauke",
+        "summary": "Tri godine računarskih nauka, dosta noćnog kodiranja i diploma završena u roku.",
+        "projects": [
+          {
+            "name": "Osnovni predmeti",
+            "description": "Algoritmi i strukture podataka, objektno-orijentisano programiranje, baze podataka, računarske mreže, operativni sistemi i softversko inženjerstvo. Osnova na kojoj i danas stoji svaki interfejs koji pravim.",
+            "tech": [],
+            "features": []
+          },
+          {
+            "name": "Gdje je kliknulo",
+            "description": "Na predmetima iz web razvoja se sve složilo. Kad sam vidio kako se kod pretvara u nešto što ljudi mogu da kliknu i koriste, znao sam da je frontend moj pravac.",
+            "tech": [],
+            "features": []
+          }
+        ]
+      }
+    }
+  },
+  "reviews": {
+    "title": "Pregledano i odobreno.",
+    "intro": "Par riječi od ljudi sa kojima sam pravio stvari.",
+    "approved": "je odobrio izmjene",
+    "commented": "je ostavio komentar",
+    "badge": "Odobreno",
+    "commentBadge": "Komentar",
+    "prev": "Prethodna preporuka",
+    "next": "Sljedeća preporuka",
+    "slide": "Preporuka {n} od {total}",
+    "items": [
+      {
+        "name": "Kolega 1",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+      },
+      {
+        "name": "Kolega 2",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom.",
+        "action": "commented"
+      },
+      {
+        "name": "Kolega 3",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+      },
+      {
+        "name": "Kolega 4",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom.",
+        "action": "commented"
+      },
+      {
+        "name": "Kolega 5",
+        "role": "Uloga, Kompanija",
+        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
+      }
+    ]
+  }
+}

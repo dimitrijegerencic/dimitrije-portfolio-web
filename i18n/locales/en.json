@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "title": "Dimitrije Gerenčić",
+    "description": "Frontend developer from Podgorica, Montenegro, with {n}+ years of building fast, accessible interfaces."
+  },
+  "nav": {
+    "home": "Dimitrije Gerenčić, back to top",
+    "label": "Main",
+    "work": "Work",
+    "reviews": "Reviews",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "hero": {
+    "greeting": "Hi, I'm {name}.",
+    "tagline": "I build interfaces that work.",
+    "role": "Frontend developer from Podgorica, Montenegro.",
+    "subtitle": "For {n}+ years I've been turning designs into fast, accessible interfaces that hold up once real people start clicking.",
+    "seeWork": "See my work",
+    "getInTouch": "Get in touch"
+  },
+  "portrait": {
+    "alt": "Dimitrije Gerenčić standing on a city street"
+  },
+  "contact": {
+    "title": "Let's build something.",
+    "intro": "Write me a short note and I'll get back to you.",
+    "greeting": "Hi Dimitrije,",
+    "namePrefix": "My name is",
+    "nameLabel": "Your name",
+    "namePlaceholder": "your name",
+    "topicPrefix": "and I'm writing to you about",
+    "topicLabel": "What it's about",
+    "topics": {
+      "project": "a project",
+      "job": "a job",
+      "other": "something else"
+    },
+    "emailPrefix": "You can reply to me at",
+    "emailLabel": "Your email",
+    "emailPlaceholder": "you{'@'}example.com",
+    "messageLabel": "Your message",
+    "messagePlaceholder": "Tell me what you have in mind. A link, an idea or a rough brief is plenty.",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sent": "Message sent. I'll reply to {email}.",
+    "error": "The message didn't go through. Check your connection and try again.",
+    "errors": {
+      "name": "Add your name so I know who's writing.",
+      "email": "Add an email address I can reply to.",
+      "emailInvalid": "That email address looks incomplete."
+    },
+    "signoff": "Cheers,"
+  },
+  "footer": {
+    "localTime": "Local time in Podgorica",
+    "nav": "Footer",
+    "backToTop": "Back to top",
+    "made": "Designed and built in Podgorica.",
+    "status": {
+      "desk": "At my desk right now.",
+      "evening": "Off for the day. I'll reply tomorrow.",
+      "weekend": "It's the weekend here. I'll reply on Monday.",
+      "night": "Asleep in Podgorica. I'll reply in the morning."
+    }
+  },
+  "about": {
+    "title": "The longer version.",
+    "intro": "My name is {name}.",
+    "p1": "I found my way to frontend through games, long before university made it official. Somewhere between figuring out game menus and sitting through lectures, I got hooked on how interfaces work.",
+    "p2": "Now I build ones that are useful, intuitive and easy for anyone to pick up, ideally on products that make things a little better for everyone. Mostly frontend, with enough backend to take a feature from the API all the way to the button.",
+    "facts": {
+      "basedLabel": "Based in",
+      "based": "Podgorica",
+      "experienceLabel": "Experience",
+      "experience": "{n}+ years",
+      "focusLabel": "Focus",
+      "focus": "Frontend",
+      "filmsLabel": "Films watched",
+      "films": "800+",
+      "filmsNote": "Watchlist still winning."
+    },
+    "p3": "At work I do my best in a team where ideas get shared and people actually talk to each other, on projects people rely on, from healthcare to the apps they open every day.",
+    "p4": "Off the clock I read about new tech, keep an eye on where AI is heading, train, play games and watch a lot of films. Choosing one usually takes longer than watching it."
+  },
+  "stack": {
+    "title": "What's in the stack.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "state": "State & i18n",
+    "tooling": "Tooling",
+    "ai": "AI"
+  },
+  "work": {
+    "title": "Work so far.",
+    "now": "now",
+    "roles": {
+      "codeus": {
+        "role": "Frontend Developer, full-time",
+        "summary": "Software agency from Podgorica building scalable web and mobile apps for startups and companies.",
+        "projects": [
+          {
+            "name": "US healthcare platform",
+            "description": "A platform for the US healthcare system where doctors and patients pull in and manage their data from their own hospitals. Doctors can also query the patients enrolled in their research projects and pull statistics from the results.",
+            "tech": [
+              "Vue",
+              "Vuetify",
+              "Pinia",
+              "TypeScript"
+            ],
+            "features": [
+              {
+                "name": "Three sub-portals",
+                "description": "Separate portals for doctors, patients and researchers, each shaped around how they actually work. Built with Vue, Vuetify, Pinia and TypeScript."
+              },
+              {
+                "name": "HIPAA-compliant AI chat",
+                "description": "An AI assistant built right into the platform, used by both doctors and patients. It meets HIPAA requirements, so health data stays protected the whole way through."
+              }
+            ]
+          },
+          {
+            "name": "Codeus corporate website",
+            "description": "The company's own website. Bilingual, with light and dark themes, and built to be found: SEO and GEO are tracked so it shows up in search results as well as in AI-generated answers.",
+            "tech": [
+              "Nuxt",
+              "Nuxt UI",
+              "i18n"
+            ],
+            "features": [
+              {
+                "name": "SEO & GEO",
+                "description": "Structured data, a sitemap, hreflang for both languages and generated social preview images, so the site reads well to search engines and AI answer engines alike."
+              },
+              {
+                "name": "UI/UX",
+                "description": "Interface built with Nuxt UI, with optimised images, smooth light and dark modes and layouts that hold up from phone to widescreen."
+              }
+            ]
+          },
+          {
+            "name": "Marketing agency platform",
+            "description": "An internal platform for a marketing agency, built to run their day-to-day work in one place: planning and tracking campaigns, managing ads across channels and keeping on top of their clients and users.\n\nIt was an inherited legacy codebase on Vue 2, Vuex and plain JavaScript, and despite the older architecture it ran and was maintained as smoothly as anything built on a modern stack.",
+            "tech": [
+              "Vue 2",
+              "Vuex",
+              "JavaScript"
+            ],
+            "features": []
+          }
+        ]
+      },
+      "amplitudo": {
+        "role": "Fullstack Academy attendee",
+        "summary": "A hands-on academy where I went from the basics to shipping a full project.",
+        "projects": [
+          {
+            "name": "Fundamentals",
+            "description": "Built a solid base in how the web works, from markup and styling to scripting and server-side code.",
+            "tech": [
+              "HTML",
+              "CSS",
+              "JavaScript",
+              "PHP"
+            ],
+            "features": []
+          },
+          {
+            "name": "Academy project",
+            "description": "A full project built from scratch, with a React frontend talking to a Laravel API.",
+            "tech": [
+              "React",
+              "Laravel"
+            ],
+            "features": []
+          }
+        ]
+      },
+      "ucg": {
+        "company": "University of Montenegro",
+        "role": "BSc in Computer Science",
+        "summary": "Three years of Computer Science, a lot of late-night coding and a degree finished on time.",
+        "projects": [
+          {
+            "name": "Core curriculum",
+            "description": "Algorithms and data structures, object-oriented programming, databases, computer networks, operating systems and software engineering. The groundwork every interface I build still sits on.",
+            "tech": [],
+            "features": []
+          },
+          {
+            "name": "Where it clicked",
+            "description": "The web development courses were where it all came together for me. Seeing code turn into something people could actually click and use is what pointed me towards frontend.",
+            "tech": [],
+            "features": []
+          }
+        ]
+      }
+    }
+  },
+  "reviews": {
+    "title": "Reviewed and approved.",
+    "intro": "A few words from people I have shipped things with.",
+    "approved": "approved these changes",
+    "commented": "left a comment",
+    "badge": "Approved",
+    "commentBadge": "Commented",
+    "prev": "Previous review",
+    "next": "Next review",
+    "slide": "Review {n} of {total}",
+    "items": [
+      {
+        "name": "Colleague 1",
+        "role": "Role, Company",
+        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
+      },
+      {
+        "name": "Colleague 2",
+        "role": "Role, Company",
+        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you.",
+        "action": "commented"
+      },
+      {
+        "name": "Colleague 3",
+        "role": "Role, Company",
+        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
+      },
+      {
+        "name": "Colleague 4",
+        "role": "Role, Company",
+        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you.",
+        "action": "commented"
+      },
+      {
+        "name": "Colleague 5",
+        "role": "Role, Company",
+        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
+      }
+    ]
+  }
+}
