@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeroSection />
-    <PortraitSection />
+    <AboutSection />
     <ContactSection />
   </div>
 </template>

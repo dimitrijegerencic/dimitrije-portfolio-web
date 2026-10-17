@@ -50,11 +50,21 @@ const blank = 'mr-0.5 ml-1.5 inline-block min-w-[5ch] border-b-2 border-dashed b
 
 <template>
   <section
-    id="contact"
     aria-labelledby="contact-title"
-    class="relative scroll-mt-20 overflow-hidden pt-24 sm:pt-32"
+    class="relative overflow-hidden pt-24 sm:pt-32"
   >
     <div class="relative z-10 mx-auto max-w-5xl px-4 sm:px-8">
+      <!--
+        Jump target for #contact links. On large screens it sits in the middle of the
+        heading and letter, so the browser lands with the whole block centred below
+        the floating header. On small screens the block is taller than the viewport,
+        so it lands at the top instead.
+      -->
+      <span
+        id="contact"
+        aria-hidden="true"
+        class="pointer-events-none absolute top-0 scroll-mt-24 lg:top-1/2 lg:scroll-mt-[calc(50svh+2.375rem)]"
+      />
       <div class="text-center">
         <h2
           id="contact-title"
@@ -147,7 +157,7 @@ const blank = 'mr-0.5 ml-1.5 inline-block min-w-[5ch] border-b-2 border-dashed b
           id="contact-message"
           v-model="form.message"
           name="message"
-          rows="6"
+          rows="5"
           :placeholder="t('contact.messagePlaceholder')"
           class="mt-6 block w-full resize-y rounded-xl border-2 border-accented bg-default px-5 py-4 text-lg leading-relaxed text-highlighted transition-colors placeholder:text-dimmed focus:border-primary focus:outline-none"
         />

@@ -63,5 +63,18 @@
       "weekend": "It's the weekend here. I'll reply on Monday.",
       "night": "Asleep in Podgorica. I'll reply in the morning."
     }
+  },
+  "about": {
+    "title": "The longer version.",
+    "p1": "Placeholder: two or three sentences about how you got into frontend and what you enjoy building most. This paragraph reads best at around three lines.",
+    "p2": "Placeholder: what you work with day to day, the kind of teams and projects you like, and what you do when you step away from the screen.",
+    "facts": {
+      "basedLabel": "Based in",
+      "based": "Podgorica",
+      "experienceLabel": "Experience",
+      "experience": "4+ years",
+      "focusLabel": "Focus",
+      "focus": "Frontend"
+    }
   }
 }

@@ -63,5 +63,18 @@
       "weekend": "Ovdje je vikend. Odgovoriću u ponedjeljak.",
       "night": "Spavam. Odgovoriću ujutru."
     }
+  },
+  "about": {
+    "title": "Duža verzija.",
+    "p1": "Placeholder: dvije-tri rečenice o tome kako si počeo sa frontendom i šta najviše voliš da praviš. Ovaj pasus najbolje izgleda u oko tri reda.",
+    "p2": "Placeholder: sa čim radiš svakodnevno, kakvi timovi i projekti ti odgovaraju i šta radiš kad nisi za ekranom.",
+    "facts": {
+      "basedLabel": "Živim u",
+      "based": "Podgorici",
+      "experienceLabel": "Iskustvo",
+      "experience": "4+ godine",
+      "focusLabel": "Fokus",
+      "focus": "Frontend"
+    }
   }
 }

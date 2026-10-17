@@ -4,8 +4,8 @@ const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 
 const links = computed(() => [
-  { label: t('nav.work'), to: '#work' },
   { label: t('nav.about'), to: '#about' },
+  { label: t('nav.work'), to: '#work' },
   { label: t('nav.contact'), to: '#contact' }
 ])
 
