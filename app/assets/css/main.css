@@ -1,18 +1,45 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme static {
-  --font-sans: 'Public Sans', sans-serif;
+@custom-variant dark (&:where(.dark, .dark *));
 
-  --color-green-50: #EFFDF5;
-  --color-green-100: #D9FBE8;
-  --color-green-200: #B3F5D1;
-  --color-green-300: #75EDAE;
-  --color-green-400: #00DC82;
-  --color-green-500: #00C16A;
-  --color-green-600: #00A155;
-  --color-green-700: #007F45;
-  --color-green-800: #016538;
-  --color-green-900: #0A5331;
-  --color-green-950: #052E16;
+@theme static {
+  --font-sans: 'Schibsted Grotesk', sans-serif;
+  --font-display: 'Big Shoulders Display', sans-serif;
+
+  /* Garnet: the dark red of the Montenegrin flag, deepened */
+  --color-garnet-50: #FDF3F3;
+  --color-garnet-100: #FBE4E5;
+  --color-garnet-200: #F6CCCE;
+  --color-garnet-300: #EEA2A5;
+  --color-garnet-400: #D6323A;
+  --color-garnet-500: #C8202A;
+  --color-garnet-600: #A8141D;
+  --color-garnet-700: #8E1219;
+  --color-garnet-800: #741118;
+  --color-garnet-900: #5E1217;
+  --color-garnet-950: #33060A;
+}
+
+:root {
+  --ui-primary: var(--ui-color-primary-800);
+  --ui-bg: #FFFFFF;
+  --ui-text: #000000;
+  --ui-text-highlighted: #000000;
+  --ui-text-muted: #5B5555;
+  --ui-border: #E7E3E3;
+}
+
+.dark {
+  --ui-primary: var(--ui-color-primary-400);
+  --ui-bg: #000000;
+  --ui-text: #FFFFFF;
+  --ui-text-highlighted: #FFFFFF;
+  --ui-text-muted: #A39C9C;
+  --ui-border: #2A2626;
+}
+
+body {
+  background: var(--ui-bg);
+  color: var(--ui-text);
 }
