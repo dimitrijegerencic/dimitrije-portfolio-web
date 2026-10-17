@@ -51,6 +51,7 @@ const blank = 'mr-0.5 ml-1.5 inline-block min-w-[5ch] border-b-2 border-dashed b
 <template>
   <section
     aria-labelledby="contact-title"
+    data-spy="#contact"
     class="relative overflow-hidden pt-24 sm:pt-32"
   >
     <div class="relative z-10 mx-auto max-w-5xl px-4 sm:px-8">

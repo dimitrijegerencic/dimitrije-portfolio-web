@@ -71,6 +71,7 @@ function months(entry: Entry) {
 <template>
   <section
     id="work"
+    data-spy="#work"
     aria-labelledby="work-title"
     class="scroll-mt-20 pb-24 sm:pb-32"
   >

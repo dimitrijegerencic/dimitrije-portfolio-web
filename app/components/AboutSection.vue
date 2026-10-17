@@ -13,6 +13,7 @@ const facts = computed(() => [
 <template>
   <section
     id="about"
+    data-spy="#about"
     aria-labelledby="about-title"
     class="scroll-mt-20 py-24 sm:py-32"
   >

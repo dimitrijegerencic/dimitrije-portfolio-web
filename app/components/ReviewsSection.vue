@@ -46,10 +46,20 @@ function onPointerUp(event: PointerEvent) {
 
 <template>
   <section
-    id="reviews"
+    data-spy="#reviews"
     aria-labelledby="reviews-title"
-    class="scroll-mt-20 overflow-hidden pb-24 sm:pb-32"
+    class="relative overflow-hidden pb-24 sm:pb-32"
   >
+    <!--
+      Jump target for #reviews links, placed in the middle of the heading and carousel
+      (the section minus its bottom padding), so the browser lands with the block centred
+      below the floating header. On small screens it lands at the top instead.
+    -->
+    <span
+      id="reviews"
+      aria-hidden="true"
+      class="pointer-events-none absolute top-0 scroll-mt-24 lg:top-[calc(50%-4rem)] lg:scroll-mt-[calc(50svh+2.375rem)]"
+    />
     <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
       <h2
         id="reviews-title"

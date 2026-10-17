@@ -56,6 +56,7 @@ const groups = computed(() => [
 <template>
   <section
     id="stack"
+    data-spy="#about"
     aria-labelledby="stack-title"
     class="scroll-mt-20 pb-24 sm:pb-32"
   >

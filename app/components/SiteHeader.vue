@@ -6,6 +6,7 @@ const switchLocalePath = useSwitchLocalePath()
 const links = computed(() => [
   { label: t('nav.about'), to: '#about' },
   { label: t('nav.work'), to: '#work' },
+  { label: t('nav.reviews'), to: '#reviews' },
   { label: t('nav.contact'), to: '#contact' }
 ])
 
@@ -13,13 +14,8 @@ const links = computed(() => [
 const scrolled = ref(false)
 
 // Scroll spy: the link for the section crossing the middle of the screen is marked active.
-// The stack section belongs to About, so it keeps About lit.
-const sectionToLink: Record<string, string> = {
-  about: '#about',
-  stack: '#about',
-  work: '#work',
-  contact: '#contact'
-}
+// Sections say which link they belong to with data-spy (the stack section keeps About lit),
+// since some ids sit on centred jump targets rather than on the sections themselves.
 const active = ref<string>()
 
 // After a nav click the target stays lit while the page glides there,
@@ -44,9 +40,9 @@ function updateActive() {
   }
   const middle = window.innerHeight / 2
   let current: string | undefined
-  for (const id of Object.keys(sectionToLink)) {
-    const rect = document.getElementById(id)?.getBoundingClientRect()
-    if (rect && rect.top <= middle && rect.bottom > middle) current = sectionToLink[id]
+  for (const section of document.querySelectorAll<HTMLElement>('[data-spy]')) {
+    const rect = section.getBoundingClientRect()
+    if (rect.top <= middle && rect.bottom > middle) current = section.dataset.spy
   }
   active.value = current
 }
