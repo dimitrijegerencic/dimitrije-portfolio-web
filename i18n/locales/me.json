@@ -95,7 +95,7 @@
     "now": "danas",
     "roles": {
       "codeus": {
-        "role": "Fullstack Developer, puno radno vrijeme",
+        "role": "Frontend Developer, puno radno vrijeme",
         "summary": "Agencija iz Podgorice koja pravi skalabilne web i mobilne aplikacije za startupove i kompanije.",
         "projects": [
           {
@@ -117,6 +117,35 @@
                 "description": "AI asistent integrisan direktno u platformu, koji koriste i doktori i pacijenti. Usklađen je sa HIPAA standardom, pa zdravstveni podaci ostaju zaštićeni na svakom koraku."
               }
             ]
+          },
+          {
+            "name": "Codeus korporativni sajt",
+            "description": "Sajt same kompanije. Dvojezičan, sa svijetlom i tamnom temom, i napravljen da se lako pronađe: SEO i GEO se prate, pa se sajt pojavljuje i u rezultatima pretrage i u odgovorima AI alata.",
+            "tech": [
+              "Nuxt",
+              "Nuxt UI",
+              "i18n"
+            ],
+            "features": [
+              {
+                "name": "SEO i GEO",
+                "description": "Strukturirani podaci, sitemap, hreflang za oba jezika i generisane slike za dijeljenje, pa sajt dobro razumiju i pretraživači i AI alati."
+              },
+              {
+                "name": "UI/UX",
+                "description": "Interfejs napravljen u Nuxt UI, sa optimizovanim slikama, glatkim prelazom između svijetle i tamne teme i rasporedom koji radi od telefona do širokog ekrana."
+              }
+            ]
+          },
+          {
+            "name": "Platforma za marketing agenciju",
+            "description": "Interna platforma za marketing agenciju, napravljena da njihov svakodnevni rad bude na jednom mjestu: planiranje i praćenje kampanja, upravljanje oglasima na više kanala i vođenje evidencije o klijentima i korisnicima.\n\nRiječ je o naslijeđenom legacy projektu u Vue 2, Vuex-u i čistom JavaScriptu, a uprkos starijoj arhitekturi sistem je radio i održavan je jednako stabilno kao da je napravljen na najnovijim tehnologijama.",
+            "tech": [
+              "Vue 2",
+              "Vuex",
+              "JavaScript"
+            ],
+            "features": []
           }
         ]
       },

@@ -95,7 +95,7 @@
     "now": "now",
     "roles": {
       "codeus": {
-        "role": "Fullstack Developer, full-time",
+        "role": "Frontend Developer, full-time",
         "summary": "Software agency from Podgorica building scalable web and mobile apps for startups and companies.",
         "projects": [
           {
@@ -117,6 +117,35 @@
                 "description": "An AI assistant built right into the platform, used by both doctors and patients. It meets HIPAA requirements, so health data stays protected the whole way through."
               }
             ]
+          },
+          {
+            "name": "Codeus corporate website",
+            "description": "The company's own website. Bilingual, with light and dark themes, and built to be found: SEO and GEO are tracked so it shows up in search results as well as in AI-generated answers.",
+            "tech": [
+              "Nuxt",
+              "Nuxt UI",
+              "i18n"
+            ],
+            "features": [
+              {
+                "name": "SEO & GEO",
+                "description": "Structured data, a sitemap, hreflang for both languages and generated social preview images, so the site reads well to search engines and AI answer engines alike."
+              },
+              {
+                "name": "UI/UX",
+                "description": "Interface built with Nuxt UI, with optimised images, smooth light and dark modes and layouts that hold up from phone to widescreen."
+              }
+            ]
+          },
+          {
+            "name": "Marketing agency platform",
+            "description": "An internal platform for a marketing agency, built to run their day-to-day work in one place: planning and tracking campaigns, managing ads across channels and keeping on top of their clients and users.\n\nIt was an inherited legacy codebase on Vue 2, Vuex and plain JavaScript, and despite the older architecture it ran and was maintained as smoothly as anything built on a modern stack.",
+            "tech": [
+              "Vue 2",
+              "Vuex",
+              "JavaScript"
+            ],
+            "features": []
           }
         ]
       },

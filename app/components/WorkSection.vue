@@ -170,14 +170,24 @@ function months(entry: Entry) {
               <li
                 v-for="project in item.projects"
                 :key="project.name"
-                class="grid gap-3 border-b border-default py-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-8"
+                class="grid gap-3 border-b border-default py-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-8"
               >
-                <h3 class="font-display text-2xl leading-tight font-bold text-highlighted sm:text-3xl">
+                <h3 class="flex gap-3 font-display text-2xl leading-tight font-bold text-highlighted sm:text-3xl">
+                  <!-- A small peak, echoing the ridge, marks where each project starts -->
+                  <span
+                    aria-hidden="true"
+                    class="mt-[0.3em] size-3 shrink-0 bg-primary [clip-path:polygon(50%_0,100%_100%,0_100%)] sm:size-3.5"
+                  />
                   {{ project.name }}
                 </h3>
                 <div>
-                  <p class="text-base leading-relaxed text-muted sm:text-lg">
-                    {{ project.description }}
+                  <!-- A blank line in the description starts a new paragraph -->
+                  <p
+                    v-for="(paragraph, i) in project.description.split('\n\n')"
+                    :key="i"
+                    class="text-base leading-relaxed text-muted not-first:mt-3 sm:text-lg"
+                  >
+                    {{ paragraph }}
                   </p>
                   <ul
                     v-if="project.tech.length"
@@ -196,7 +206,7 @@ function months(entry: Entry) {
                 <!-- Highlights span the full project width, side by side -->
                 <div
                   v-if="project.features.length"
-                  class="mt-3 grid gap-6 sm:grid-cols-2 md:col-span-2 md:mt-2 md:gap-8"
+                  class="mt-3 grid gap-6 sm:grid-cols-2 md:col-span-2 md:mt-4 md:gap-8"
                 >
                   <div
                     v-for="feature in project.features"
