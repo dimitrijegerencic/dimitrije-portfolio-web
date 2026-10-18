@@ -13,6 +13,10 @@ const links = computed(() => [
 // Once the page moves, the bar lifts off into a floating glass panel
 const scrolled = ref(false)
 
+// On phones the links live in a dock at the bottom, within reach of the thumb.
+// It slides in once the hero is behind you, since the hero has its own buttons.
+const docked = ref(false)
+
 // Scroll spy: the link for the section crossing the middle of the screen is marked active.
 // Sections say which link they belong to with data-spy (the stack section keeps About lit),
 // since some ids sit on centred jump targets rather than on the sections themselves.
@@ -47,8 +51,12 @@ function updateActive() {
   active.value = current
 }
 
+// Which dock slot the sliding highlight sits under
+const activeIndex = computed(() => links.value.findIndex(link => link.to === active.value))
+
 function onScroll() {
   scrolled.value = window.scrollY > 24
+  docked.value = window.scrollY > window.innerHeight * 0.6
   if (locked) scheduleUnlock()
   else updateActive()
 }
@@ -138,6 +146,37 @@ onBeforeUnmount(() => {
       </div>
     </div>
   </header>
+
+  <nav
+    :aria-label="t('nav.label')"
+    data-dock
+    :data-shown="docked || undefined"
+    class="fixed inset-x-0 bottom-0 z-50 flex justify-center px-3 sm:hidden"
+  >
+    <div
+      data-dock-panel
+      class="relative grid w-full max-w-sm grid-cols-4 rounded-full p-1.5"
+    >
+      <!-- Slides under the active link; hidden while no section is active -->
+      <span
+        aria-hidden="true"
+        data-dock-pill
+        class="absolute inset-y-1.5 left-1.5 w-[calc((100%-0.75rem)/4)] rounded-full bg-primary"
+        :style="{ '--slot': Math.max(activeIndex, 0), 'opacity': activeIndex < 0 ? 0 : 1 }"
+      />
+      <a
+        v-for="link in links"
+        :key="link.to"
+        :href="link.to"
+        :aria-current="active === link.to ? 'location' : undefined"
+        :tabindex="docked ? undefined : -1"
+        class="relative rounded-full py-2.5 text-center text-sm font-medium text-toned transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary aria-[current]:text-white"
+        @click="onNavClick(link.to)"
+      >
+        {{ link.label }}
+      </a>
+    </div>
+  </nav>
 </template>
 
 <style scoped>
@@ -202,9 +241,45 @@ onBeforeUnmount(() => {
     0 2px 6px -2px transparent;
 }
 
+/* Phone dock: the same frosted glass, floating above the home indicator */
+[data-dock] {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  transform: translateY(calc(100% + 1rem));
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+[data-dock][data-shown] {
+  transform: none;
+}
+
+[data-dock-panel] {
+  pointer-events: auto;
+  border: 1px solid color-mix(in oklab, var(--ui-text) 10%, transparent);
+  background-color: color-mix(in oklab, var(--ui-bg) 70%, transparent);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  backdrop-filter: blur(24px) saturate(1.8);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 35%, transparent),
+    0 12px 32px -12px rgb(0 0 0 / 0.35);
+}
+
+:root.dark [data-dock-panel] {
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 14%, transparent),
+    0 12px 32px -12px rgb(0 0 0 / 0.8);
+}
+
+[data-dock-pill] {
+  transform: translateX(calc(var(--slot) * 100%));
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-glass],
-  [data-glass]::before {
+  [data-glass]::before,
+  [data-dock],
+  [data-dock-pill] {
     transition: none;
   }
 }

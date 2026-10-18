@@ -54,7 +54,7 @@ const groups = computed(() => [
     <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
       <h2
         id="stack-title"
-        class="font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[0.92] font-extrabold text-balance text-highlighted uppercase"
+        class="font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[0.92] font-extrabold text-balance text-highlighted uppercase max-sm:text-center"
       >
         {{ t('stack.title') }}
       </h2>
@@ -63,25 +63,25 @@ const groups = computed(() => [
         <div
           v-for="group in groups"
           :key="group.label"
-          class="grid gap-4 border-b border-default py-6 sm:grid-cols-[10rem_1fr] sm:items-center sm:gap-8"
+          class="grid gap-3 border-b border-default py-5 sm:grid-cols-[10rem_1fr] sm:items-center sm:gap-8 sm:py-6"
         >
           <h3 class="text-sm text-muted">
             {{ group.label }}
           </h3>
 
-          <ul class="flex flex-wrap gap-x-10 gap-y-5">
+          <ul class="flex flex-wrap gap-x-6 gap-y-3 sm:gap-x-10 sm:gap-y-5">
             <li
               v-for="item in group.items"
               :key="item.name"
               data-tech
-              class="flex cursor-default items-center gap-3 select-none"
+              class="flex cursor-default items-center gap-2 select-none sm:gap-3"
               :style="{ '--brand': item.brand }"
             >
               <UIcon
                 :name="item.icon"
-                class="size-8 shrink-0 text-highlighted transition-colors duration-300"
+                class="size-6 shrink-0 text-highlighted transition-colors duration-300 sm:size-8"
               />
-              <span class="font-display text-2xl font-bold text-highlighted sm:text-3xl">
+              <span class="font-display text-xl font-bold text-highlighted sm:text-3xl">
                 {{ item.name }}
               </span>
             </li>

@@ -55,7 +55,8 @@ const year = new Date().getFullYear()
   <!-- Same tint as the ridge fill, so the mountains stand on the footer like on ground.
        No z-index: the cursor glow lights it like the ridges. -->
   <footer class="relative overflow-hidden bg-[color-mix(in_oklab,var(--ui-primary)_7%,var(--ui-bg))] text-highlighted">
-    <div class="mx-auto grid max-w-7xl gap-12 px-4 pt-20 pb-16 sm:grid-cols-3 sm:px-8 sm:pt-28 sm:pb-20">
+    <!-- On phones everything stacks in the middle, and the dock already carries the links -->
+    <div class="mx-auto grid max-w-7xl justify-items-center gap-y-8 px-4 pt-16 pb-12 text-center sm:grid-cols-3 sm:justify-items-stretch sm:gap-12 sm:px-8 sm:pt-28 sm:pb-20 sm:text-left">
       <div>
         <p class="text-sm text-muted">
           {{ t('footer.localTime') }}
@@ -69,11 +70,11 @@ const year = new Date().getFullYear()
         </p>
         <p
           v-if="status"
-          class="mt-3 flex items-center gap-2.5 text-sm text-toned"
+          class="mt-3 flex max-w-xs items-start gap-2.5 text-left text-sm text-toned max-sm:mx-auto sm:max-w-none"
         >
           <span
             aria-hidden="true"
-            class="relative flex size-2"
+            class="relative mt-1.5 flex size-2 shrink-0"
           >
             <span
               v-if="status === 'desk'"
@@ -90,7 +91,7 @@ const year = new Date().getFullYear()
 
       <nav
         :aria-label="t('footer.nav')"
-        class="flex flex-col gap-3 sm:items-center"
+        class="hidden flex-col gap-3 sm:flex sm:items-center"
       >
         <a
           v-for="link in links"
@@ -119,7 +120,8 @@ const year = new Date().getFullYear()
       </div>
     </div>
 
-    <div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-x-6 gap-y-5 border-t border-default px-4 py-8 text-sm text-muted sm:px-8">
+    <!-- Extra room at the bottom on phones, so the dock never covers the last line -->
+    <div class="mx-auto flex max-w-7xl flex-col items-center gap-x-6 gap-y-3 border-t border-default px-4 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))] text-sm text-muted sm:flex-row sm:flex-wrap sm:justify-between sm:px-8 sm:py-8">
       <div class="flex items-center gap-5">
         <p>© {{ year }} Dimitrije Gerenčić</p>
         <a
