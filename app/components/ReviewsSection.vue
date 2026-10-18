@@ -66,11 +66,11 @@ function onPointerUp(event: PointerEvent) {
     <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
       <h2
         id="reviews-title"
-        class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.92] font-extrabold text-balance text-highlighted uppercase"
+        class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.92] font-extrabold text-balance text-highlighted uppercase max-sm:text-center"
       >
         {{ t('reviews.title') }}
       </h2>
-      <p class="mt-4 max-w-xl text-lg text-muted">
+      <p class="mt-4 max-w-xl text-lg text-muted max-sm:mx-auto max-sm:text-center">
         {{ t('reviews.intro') }}
       </p>
     </div>

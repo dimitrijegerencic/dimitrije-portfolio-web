@@ -38,7 +38,7 @@ const facts = computed(() => [
       <div>
         <h2
           id="about-title"
-          class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.92] font-extrabold text-balance text-highlighted uppercase"
+          class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.92] font-extrabold text-balance text-highlighted uppercase max-sm:text-center"
         >
           {{ t('about.title') }}
         </h2>

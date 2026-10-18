@@ -7,6 +7,8 @@ interface Feature {
 }
 
 interface Project {
+  // Language-neutral id, used to find the project's mark
+  key?: string
   name: string
   description: string
   tech: string[]
@@ -33,6 +35,32 @@ const entries: Entry[] = [
   { key: 'ucg', company: 'University of Montenegro', url: 'https://www.ucg.ac.me', logo: '/logos/ucg.svg', start: 2019, end: 2022 }
 ]
 
+// Marks for projects that have one, keyed by the project's key in the locale files.
+// Shown in place of the peak bullet, in the text colour with their own colours on hover,
+// and never linked to the client's site. A mark is either an icon with a hover colour or
+// a logo image; a logo whose detail is white on a solid shape gets a separate cut-out
+// mask, so that detail still shows when the mark is drawn in the text colour.
+interface ProjectMark {
+  // Either an icon with its hover colour...
+  icon?: string
+  brand?: string
+  // ...or a logo image
+  src?: string
+  mask?: string
+}
+
+const projectMarks: Record<string, ProjectMark> = {
+  'healthcare': { icon: 'i-lucide-stethoscope', brand: '#16A34A' },
+  'precise': { src: '/logos/precise.png', mask: '/logos/precise-mask.png' },
+  'equate': { src: '/logos/equate.png' },
+  'codeus-site': { src: '/logos/codeus.svg' },
+  'vjeronauka': { src: '/logos/vjeronauka.svg' }
+}
+
+function markOf(project: Project): ProjectMark | undefined {
+  return project.key ? projectMarks[project.key] : undefined
+}
+
 const roles = computed(() => entries.map(entry => ({
   ...entry,
   current: entry.end === null,
@@ -41,6 +69,7 @@ const roles = computed(() => entries.map(entry => ({
   role: t(`work.roles.${entry.key}.role`),
   summary: t(`work.roles.${entry.key}.summary`),
   projects: (tm(`work.roles.${entry.key}.projects`) as unknown as Record<keyof Project, unknown>[]).map(p => ({
+    key: p.key ? rt(p.key as string) : undefined,
     name: rt(p.name as string),
     description: rt(p.description as string),
     tech: (p.tech as string[]).map(item => rt(item)),
@@ -50,6 +79,40 @@ const roles = computed(() => entries.map(entry => ({
     }))
   })) as Project[]
 })))
+
+// On phones each project folds down to its name, so the timeline reads as a list
+// you can scan and open, instead of one very long scroll. Wider screens show everything.
+const narrow = ref(false)
+const opened = ref(new Set<string>())
+
+function projectId(roleKey: string, project: Project) {
+  return `project-${roleKey}-${project.key ?? project.name.toLowerCase().replace(/\W+/g, '-')}`
+}
+
+function toggle(id: string) {
+  const next = new Set(opened.value)
+  if (next.has(id)) next.delete(id)
+  else next.add(id)
+  opened.value = next
+}
+
+function isShown(id: string) {
+  return !narrow.value || opened.value.has(id)
+}
+
+let query: MediaQueryList | undefined
+const onQuery = () => {
+  narrow.value = !!query?.matches
+}
+
+onMounted(() => {
+  // Below Tailwind's md breakpoint
+  query = window.matchMedia('(max-width: 47.99rem)')
+  onQuery()
+  query.addEventListener('change', onQuery)
+})
+
+onBeforeUnmount(() => query?.removeEventListener('change', onQuery))
 
 // "2023 – now", "2022" for a single year, "2020 – 2022" for a range
 function period(start: number, end: number | null) {
@@ -78,7 +141,7 @@ function months(entry: Entry) {
     <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-8">
       <h2
         id="work-title"
-        class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.92] font-extrabold text-balance text-highlighted uppercase"
+        class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.92] font-extrabold text-balance text-highlighted uppercase max-sm:text-center"
       >
         {{ t('work.title') }}
       </h2>
@@ -171,17 +234,62 @@ function months(entry: Entry) {
               <li
                 v-for="project in item.projects"
                 :key="project.name"
-                class="grid gap-3 border-b border-default py-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-8"
+                class="grid gap-3 border-b border-default py-5 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-8 md:py-10"
               >
-                <h3 class="flex gap-3 font-display text-2xl leading-tight font-bold text-highlighted sm:text-3xl">
-                  <!-- A small peak, echoing the ridge, marks where each project starts -->
-                  <span
-                    aria-hidden="true"
-                    class="mt-[0.3em] size-3 shrink-0 bg-primary [clip-path:polygon(50%_0,100%_100%,0_100%)] sm:size-3.5"
-                  />
-                  {{ project.name }}
+                <h3 class="font-display text-2xl leading-tight font-bold text-highlighted sm:text-3xl">
+                  <!-- A button on phones, where the project folds; plain text everywhere else -->
+                  <component
+                    :is="narrow ? 'button' : 'span'"
+                    :type="narrow ? 'button' : undefined"
+                    :aria-expanded="narrow ? opened.has(projectId(item.key, project)) : undefined"
+                    :aria-controls="narrow ? `${projectId(item.key, project)}-body` : undefined"
+                    class="group flex w-full gap-3 rounded-sm text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    :class="narrow && 'cursor-pointer'"
+                    @click="narrow && toggle(projectId(item.key, project))"
+                  >
+                    <!-- The project's mark in the text colour, its own colours on hover, like the company logos -->
+                    <UIcon
+                      v-if="markOf(project)?.icon"
+                      :name="markOf(project)!.icon!"
+                      :style="{ '--brand': markOf(project)!.brand }"
+                      aria-hidden="true"
+                      class="mt-[0.05em] size-7 shrink-0 transition-colors duration-300 group-hover:text-(--brand) sm:size-8"
+                    />
+                    <span
+                      v-else-if="markOf(project)?.src"
+                      aria-hidden="true"
+                      class="relative mt-[0.05em] block size-7 shrink-0 sm:size-8"
+                    >
+                      <span
+                        class="absolute inset-0 bg-current transition-opacity duration-300 group-hover:opacity-0"
+                        :style="{ maskImage: `url(${markOf(project)!.mask ?? markOf(project)!.src})`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center' }"
+                      />
+                      <img
+                        :src="markOf(project)!.src"
+                        alt=""
+                        class="absolute inset-0 size-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      >
+                    </span>
+                    <!-- Otherwise a small peak, echoing the ridge, marks where each project starts -->
+                    <span
+                      v-else
+                      aria-hidden="true"
+                      class="mt-[0.3em] size-3 shrink-0 bg-primary [clip-path:polygon(50%_0,100%_100%,0_100%)] sm:size-3.5"
+                    />
+                    <span class="grow">{{ project.name }}</span>
+                    <UIcon
+                      v-if="narrow"
+                      name="i-lucide-chevron-down"
+                      aria-hidden="true"
+                      class="mt-[0.15em] size-6 shrink-0 text-muted transition-transform duration-300 motion-reduce:transition-none"
+                      :class="opened.has(projectId(item.key, project)) && 'rotate-180 text-primary'"
+                    />
+                  </component>
                 </h3>
-                <div>
+                <div
+                  v-show="isShown(projectId(item.key, project))"
+                  :id="`${projectId(item.key, project)}-body`"
+                >
                   <!-- A blank line in the description starts a new paragraph -->
                   <p
                     v-for="(paragraph, i) in project.description.split('\n\n')"
@@ -207,6 +315,7 @@ function months(entry: Entry) {
                 <!-- Highlights span the full project width, side by side -->
                 <div
                   v-if="project.features.length"
+                  v-show="isShown(projectId(item.key, project))"
                   class="mt-3 grid gap-6 sm:grid-cols-2 md:col-span-2 md:mt-4 md:gap-8"
                 >
                   <div

@@ -32,7 +32,7 @@ const words = computed(() => t('hero.tagline').split(' '))
           <span
             :key="t('hero.tagline')"
             aria-hidden="true"
-            class="mt-4 block text-[clamp(3.25rem,9vw,7.75rem)] leading-[0.88] font-extrabold tracking-[-0.01em] text-balance uppercase"
+            class="mt-4 block text-[18.5vw] leading-[0.86] font-extrabold tracking-[-0.01em] text-balance uppercase sm:text-[clamp(3.25rem,9vw,7.75rem)] sm:leading-[0.88]"
           >
             <template
               v-for="(word, i) in words"
@@ -46,16 +46,17 @@ const words = computed(() => t('hero.tagline').split(' '))
           </span>
         </h1>
 
-        <p class="mt-8 max-w-136 text-lg leading-relaxed text-muted sm:text-xl">
+        <p class="mt-6 max-w-136 text-base leading-relaxed text-muted sm:mt-8 sm:text-xl">
           <span class="block">{{ t('hero.role') }}</span>
           <span class="block">{{ t('hero.subtitle', years) }}</span>
         </p>
 
-        <div class="mt-10 flex flex-wrap gap-3">
+        <!-- On phones the two buttons split the width, with the profiles in a row below -->
+        <div class="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:flex sm:flex-wrap">
           <UButton
             to="#work"
             size="xl"
-            class="rounded-lg px-6 text-white"
+            class="justify-center rounded-lg px-6 text-white"
           >
             {{ t('hero.seeWork') }}
           </UButton>
@@ -64,12 +65,12 @@ const words = computed(() => t('hero.tagline').split(' '))
             size="xl"
             color="neutral"
             variant="outline"
-            class="rounded-lg px-6"
+            class="justify-center rounded-lg px-6"
           >
             {{ t('hero.getInTouch') }}
           </UButton>
 
-          <div class="flex items-center gap-1 sm:ml-2">
+          <div class="col-span-2 -ml-2.5 flex items-center gap-1 sm:ml-2">
             <UButton
               v-for="social in socials"
               :key="social.to"
@@ -90,10 +91,10 @@ const words = computed(() => t('hero.tagline').split(' '))
       </div>
     </div>
 
-    <div class="relative mt-12 h-68 w-full sm:h-88 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:h-[min(78%,max(64%,26vw))]">
+    <div class="relative mt-8 flex min-h-56 w-full flex-1 flex-col max-sm:max-h-[60svh] sm:mt-12 sm:h-88 sm:flex-none lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:h-[min(78%,max(64%,26vw))]">
       <MountainRidge
         parallax
-        class="size-full"
+        class="w-full flex-1"
       />
     </div>
   </section>
@@ -104,9 +105,6 @@ const words = computed(() => t('hero.tagline').split(' '))
 [data-word-mask] {
   display: inline-block;
   overflow: hidden;
-  /* Room above for accents like the caron in Š, and below for descenders */
-  padding-top: 0.14em;
-  margin-top: -0.14em;
   /* Room above for accents like the caron in Š, and below for descenders */
   padding-top: 0.14em;
   margin-top: -0.14em;

@@ -61,7 +61,7 @@
     "status": {
       "desk": "At my desk right now.",
       "evening": "Off for the day. I'll reply tomorrow.",
-      "weekend": "It's the weekend here. I'll reply on Monday.",
+      "weekend": "Weekend in Podgorica, probably halfway through a film. Replies might be a bit slower.",
       "night": "Asleep in Podgorica. I'll reply in the morning."
     }
   },
@@ -89,8 +89,7 @@
     "frontend": "Frontend",
     "backend": "Backend",
     "state": "State & i18n",
-    "tooling": "Tooling",
-    "ai": "AI"
+    "tooling": "Tooling"
   },
   "work": {
     "title": "Work so far.",
@@ -101,6 +100,7 @@
         "summary": "Software agency from Podgorica building scalable web and mobile apps for startups and companies.",
         "projects": [
           {
+            "key": "healthcare",
             "name": "US healthcare platform",
             "description": "A platform for the US healthcare system where doctors and patients pull in and manage their data from their own hospitals. Doctors can also query the patients enrolled in their research projects and pull statistics from the results.",
             "tech": [
@@ -121,6 +121,28 @@
             ]
           },
           {
+            "key": "precise",
+            "name": "Precise Tech",
+            "description": "A sales platform where agents put together offers and send them straight to customers, with the whole system built around that flow.",
+            "tech": [
+              "Nuxt",
+              "Vue 3",
+              "Laravel"
+            ]
+          },
+          {
+            "key": "equate",
+            "name": "Equate AI",
+            "description": "An internal platform for a marketing agency, built to run their day-to-day work in one place: planning and tracking campaigns, managing ads across channels and keeping on top of their clients and users.\n\nIt was an inherited legacy codebase on Vue 2, Vuex and plain JavaScript, and despite the older architecture it ran and was maintained as smoothly as anything built on a modern stack.",
+            "tech": [
+              "Vue 2",
+              "Vuex",
+              "JavaScript"
+            ],
+            "features": []
+          },
+          {
+            "key": "codeus-site",
             "name": "Codeus corporate website",
             "description": "The company's own website. Bilingual, with light and dark themes, and built to be found: SEO and GEO are tracked so it shows up in search results as well as in AI-generated answers.",
             "tech": [
@@ -140,14 +162,14 @@
             ]
           },
           {
-            "name": "Marketing agency platform",
-            "description": "An internal platform for a marketing agency, built to run their day-to-day work in one place: planning and tracking campaigns, managing ads across channels and keeping on top of their clients and users.\n\nIt was an inherited legacy codebase on Vue 2, Vuex and plain JavaScript, and despite the older architecture it ran and was maintained as smoothly as anything built on a modern stack.",
+            "key": "vjeronauka",
+            "name": "Vjeronauka",
+            "description": "A learning platform for religious education, already in use in classrooms. Administrators look after the platform, teachers run their classes on it, and students find their lessons, tests, events and study materials in one place.\n\nStudents sign in with a nickname rather than an email, so children never have to share personal data, and every account starts with an invitation from their teacher.",
             "tech": [
-              "Vue 2",
-              "Vuex",
-              "JavaScript"
-            ],
-            "features": []
+              "Nuxt",
+              "Nuxt UI",
+              "Laravel"
+            ]
           }
         ]
       },

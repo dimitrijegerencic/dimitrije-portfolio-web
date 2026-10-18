@@ -10,7 +10,7 @@ const uiLocale = computed(() => (locale.value === 'me' ? hr : en))
 
 useHead({
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' }
   ],
   link: () => [
     // SVG follows the browser's light/dark theme; the ICO is the fallback for browsers without SVG icons

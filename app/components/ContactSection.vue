@@ -173,7 +173,8 @@ const blank = 'mr-0.5 ml-1.5 inline-block min-w-[5ch] border-b-2 border-dashed b
           class="absolute -left-[9999px] size-px opacity-0"
         >
 
-        <div class="mt-8 flex flex-wrap items-end justify-between gap-6">
+        <!-- On phones the button takes the full width under the signature -->
+        <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <div aria-hidden="true">
             <p class="text-base text-muted">
               {{ t('contact.signoff') }}
@@ -190,7 +191,7 @@ const blank = 'mr-0.5 ml-1.5 inline-block min-w-[5ch] border-b-2 border-dashed b
             type="submit"
             size="xl"
             :loading="status === 'sending'"
-            class="rounded-lg px-8 text-white"
+            class="justify-center rounded-lg px-8 text-white max-sm:w-full"
           >
             {{ status === 'sending' ? t('contact.sending') : t('contact.send') }}
           </UButton>
