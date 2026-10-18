@@ -61,7 +61,7 @@
     "status": {
       "desk": "Trenutno sam za računarom.",
       "evening": "Završio sam za danas. Odgovoriću sjutra.",
-      "weekend": "Ovdje je vikend. Odgovoriću u ponedjeljak.",
+      "weekend": "Vikend je u Podgorici, vjerovatno sam usred nekog filma. Odgovor može malo da kasni.",
       "night": "Spavam. Odgovoriću ujutru."
     }
   },
@@ -89,8 +89,7 @@
     "frontend": "Frontend",
     "backend": "Backend",
     "state": "Stanje i prevodi",
-    "tooling": "Alati",
-    "ai": "AI"
+    "tooling": "Alati"
   },
   "work": {
     "title": "Dosadašnji rad.",
@@ -101,6 +100,7 @@
         "summary": "Agencija iz Podgorice koja pravi skalabilne web i mobilne aplikacije za startupove i kompanije.",
         "projects": [
           {
+            "key": "healthcare",
             "name": "Američka healthcare platforma",
             "description": "Platforma za američki zdravstveni sistem preko koje doktori i pacijenti povlače svoje podatke iz bolnica i upravljaju njima. Doktori mogu i da pretražuju pacijente uključene u svoja istraživanja i izvlače statistiku iz rezultata.",
             "tech": [
@@ -121,6 +121,28 @@
             ]
           },
           {
+            "key": "precise",
+            "name": "Precise Tech",
+            "description": "Prodajna platforma na kojoj agenti sastavljaju ponude i šalju ih direktno kupcima, a cijeli sistem je napravljen oko tog procesa.",
+            "tech": [
+              "Nuxt",
+              "Vue 3",
+              "Laravel"
+            ]
+          },
+          {
+            "key": "equate",
+            "name": "Equate AI",
+            "description": "Interna platforma za marketing agenciju, napravljena da njihov svakodnevni rad bude na jednom mjestu: planiranje i praćenje kampanja, upravljanje oglasima na više kanala i vođenje evidencije o klijentima i korisnicima.\n\nRiječ je o naslijeđenom legacy projektu u Vue 2, Vuex-u i čistom JavaScriptu, a uprkos starijoj arhitekturi sistem je radio i održavan je jednako stabilno kao da je napravljen na najnovijim tehnologijama.",
+            "tech": [
+              "Vue 2",
+              "Vuex",
+              "JavaScript"
+            ],
+            "features": []
+          },
+          {
+            "key": "codeus-site",
             "name": "Codeus korporativni sajt",
             "description": "Sajt same kompanije. Dvojezičan, sa svijetlom i tamnom temom, i napravljen da se lako pronađe: SEO i GEO se prate, pa se sajt pojavljuje i u rezultatima pretrage i u odgovorima AI alata.",
             "tech": [
@@ -140,14 +162,14 @@
             ]
           },
           {
-            "name": "Platforma za marketing agenciju",
-            "description": "Interna platforma za marketing agenciju, napravljena da njihov svakodnevni rad bude na jednom mjestu: planiranje i praćenje kampanja, upravljanje oglasima na više kanala i vođenje evidencije o klijentima i korisnicima.\n\nRiječ je o naslijeđenom legacy projektu u Vue 2, Vuex-u i čistom JavaScriptu, a uprkos starijoj arhitekturi sistem je radio i održavan je jednako stabilno kao da je napravljen na najnovijim tehnologijama.",
+            "key": "vjeronauka",
+            "name": "Vjeronauka",
+            "description": "Platforma za učenje vjeronauke, koja je već u upotrebi. Administratori upravljaju platformom, katihete na njoj vode svoja odjeljenja, a učenici na jednom mjestu imaju lekcije, testove, događaje i materijale.\n\nUčenici se prijavljuju nadimkom umjesto e-poštom, pa djeca nikad ne moraju da dijele lične podatke, a svaki nalog počinje pozivnicom od katihete.",
             "tech": [
-              "Vue 2",
-              "Vuex",
-              "JavaScript"
-            ],
-            "features": []
+              "Nuxt",
+              "Nuxt UI",
+              "Laravel"
+            ]
           }
         ]
       },

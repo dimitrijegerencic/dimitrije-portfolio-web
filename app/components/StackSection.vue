@@ -36,18 +36,9 @@ const groups = computed(() => [
     items: [
       { name: 'Vite', icon: 'i-simple-icons-vite', brand: '#646CFF' },
       { name: 'Git', icon: 'i-simple-icons-git', brand: '#F05032' },
-      { name: 'GitHub', icon: 'i-simple-icons-github', brand: 'var(--ui-primary)' },
-      { name: 'GitLab', icon: 'i-simple-icons-gitlab', brand: '#FC6D26' },
       { name: 'Figma', icon: 'i-simple-icons-figma', brand: '#F24E1E' },
       { name: 'Postman', icon: 'i-simple-icons-postman', brand: '#FF6C37' },
       { name: 'Jira', icon: 'i-simple-icons-jira', brand: '#0052CC' }
-    ]
-  },
-  {
-    label: t('stack.ai'),
-    items: [
-      { name: 'Claude / Claude Code', icon: 'i-simple-icons-claude', brand: '#D97757' },
-      { name: 'ChatGPT', icon: 'i-simple-icons-openai', brand: '#10A37F' }
     ]
   }
 ])

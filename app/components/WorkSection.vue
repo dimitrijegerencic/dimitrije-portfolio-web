@@ -7,6 +7,8 @@ interface Feature {
 }
 
 interface Project {
+  // Language-neutral id, used to find the project's mark
+  key?: string
   name: string
   description: string
   tech: string[]
@@ -33,6 +35,32 @@ const entries: Entry[] = [
   { key: 'ucg', company: 'University of Montenegro', url: 'https://www.ucg.ac.me', logo: '/logos/ucg.svg', start: 2019, end: 2022 }
 ]
 
+// Marks for projects that have one, keyed by the project's key in the locale files.
+// Shown in place of the peak bullet, in the text colour with their own colours on hover,
+// and never linked to the client's site. A mark is either an icon with a hover colour or
+// a logo image; a logo whose detail is white on a solid shape gets a separate cut-out
+// mask, so that detail still shows when the mark is drawn in the text colour.
+interface ProjectMark {
+  // Either an icon with its hover colour...
+  icon?: string
+  brand?: string
+  // ...or a logo image
+  src?: string
+  mask?: string
+}
+
+const projectMarks: Record<string, ProjectMark> = {
+  'healthcare': { icon: 'i-lucide-stethoscope', brand: '#16A34A' },
+  'precise': { src: '/logos/precise.png', mask: '/logos/precise-mask.png' },
+  'equate': { src: '/logos/equate.png' },
+  'codeus-site': { src: '/logos/codeus.svg' },
+  'vjeronauka': { src: '/logos/vjeronauka.svg' }
+}
+
+function markOf(project: Project): ProjectMark | undefined {
+  return project.key ? projectMarks[project.key] : undefined
+}
+
 const roles = computed(() => entries.map(entry => ({
   ...entry,
   current: entry.end === null,
@@ -41,6 +69,7 @@ const roles = computed(() => entries.map(entry => ({
   role: t(`work.roles.${entry.key}.role`),
   summary: t(`work.roles.${entry.key}.summary`),
   projects: (tm(`work.roles.${entry.key}.projects`) as unknown as Record<keyof Project, unknown>[]).map(p => ({
+    key: p.key ? rt(p.key as string) : undefined,
     name: rt(p.name as string),
     description: rt(p.description as string),
     tech: (p.tech as string[]).map(item => rt(item)),
@@ -173,9 +202,33 @@ function months(entry: Entry) {
                 :key="project.name"
                 class="grid gap-3 border-b border-default py-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-8"
               >
-                <h3 class="flex gap-3 font-display text-2xl leading-tight font-bold text-highlighted sm:text-3xl">
-                  <!-- A small peak, echoing the ridge, marks where each project starts -->
+                <h3 class="group flex gap-3 font-display text-2xl leading-tight font-bold text-highlighted sm:text-3xl">
+                  <!-- The project's mark in the text colour, its own colours on hover, like the company logos -->
+                  <UIcon
+                    v-if="markOf(project)?.icon"
+                    :name="markOf(project)!.icon!"
+                    :style="{ '--brand': markOf(project)!.brand }"
+                    aria-hidden="true"
+                    class="mt-[0.05em] size-7 shrink-0 transition-colors duration-300 group-hover:text-(--brand) sm:size-8"
+                  />
                   <span
+                    v-else-if="markOf(project)?.src"
+                    aria-hidden="true"
+                    class="relative mt-[0.05em] block size-7 shrink-0 sm:size-8"
+                  >
+                    <span
+                      class="absolute inset-0 bg-current transition-opacity duration-300 group-hover:opacity-0"
+                      :style="{ maskImage: `url(${markOf(project)!.mask ?? markOf(project)!.src})`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center' }"
+                    />
+                    <img
+                      :src="markOf(project)!.src"
+                      alt=""
+                      class="absolute inset-0 size-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    >
+                  </span>
+                  <!-- Otherwise a small peak, echoing the ridge, marks where each project starts -->
+                  <span
+                    v-else
                     aria-hidden="true"
                     class="mt-[0.3em] size-3 shrink-0 bg-primary [clip-path:polygon(50%_0,100%_100%,0_100%)] sm:size-3.5"
                   />
