@@ -53,8 +53,7 @@ const projectMarks: Record<string, ProjectMark> = {
   'healthcare': { icon: 'i-lucide-stethoscope', brand: '#16A34A' },
   'precise': { src: '/logos/precise.png', mask: '/logos/precise-mask.png' },
   'equate': { src: '/logos/equate.png' },
-  'codeus-site': { src: '/logos/codeus.svg' },
-  'vjeronauka': { src: '/logos/vjeronauka.svg' }
+  'codeus-site': { src: '/logos/codeus.svg' }
 }
 
 function markOf(project: Project): ProjectMark | undefined {

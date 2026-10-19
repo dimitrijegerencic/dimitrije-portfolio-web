@@ -160,16 +160,6 @@
                 "description": "Interface built with Nuxt UI, with optimised images, smooth light and dark modes and layouts that hold up from phone to widescreen."
               }
             ]
-          },
-          {
-            "key": "vjeronauka",
-            "name": "Vjeronauka",
-            "description": "A learning platform for religious education, already in use in classrooms. Administrators look after the platform, teachers run their classes on it, and students find their lessons, tests, events and study materials in one place.\n\nStudents sign in with a nickname rather than an email, so children never have to share personal data, and every account starts with an invitation from their teacher.",
-            "tech": [
-              "Nuxt",
-              "Nuxt UI",
-              "Laravel"
-            ]
           }
         ]
       },

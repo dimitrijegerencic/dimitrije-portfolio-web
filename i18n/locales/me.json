@@ -160,16 +160,6 @@
                 "description": "Interfejs napravljen u Nuxt UI, sa optimizovanim slikama, glatkim prelazom između svijetle i tamne teme i rasporedom koji radi od telefona do širokog ekrana."
               }
             ]
-          },
-          {
-            "key": "vjeronauka",
-            "name": "Vjeronauka",
-            "description": "Platforma za učenje vjeronauke, koja je već u upotrebi. Administratori upravljaju platformom, katihete na njoj vode svoja odjeljenja, a učenici na jednom mjestu imaju lekcije, testove, događaje i materijale.\n\nUčenici se prijavljuju nadimkom umjesto e-poštom, pa djeca nikad ne moraju da dijele lične podatke, a svaki nalog počinje pozivnicom od katihete.",
-            "tech": [
-              "Nuxt",
-              "Nuxt UI",
-              "Laravel"
-            ]
           }
         ]
       },
