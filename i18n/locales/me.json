@@ -219,9 +219,6 @@
     "commentBadge": "Komentar",
     "prev": "Prethodna preporuka",
     "next": "Sljedeća preporuka",
-    "slide": "Preporuka {n} od {total}",
-    "relations": {
-      "sameTeam": "Radili smo u istom timu"
-    }
+    "slide": "Preporuka {n} od {total}"
   }
 }

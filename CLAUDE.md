@@ -7,4 +7,4 @@
 
 ## Content
 
-- Recommendations for the Reviews section live in `app/data/recommendations.ts`. Quotes stay in the language they were written in; only the relation line is translated, under `reviews.relations` in `i18n/locales/*.json`.
+- Recommendations for the Reviews section live in `app/data/recommendations.ts`. Quotes stay in the language they were written in.

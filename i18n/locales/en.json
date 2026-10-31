@@ -219,9 +219,6 @@
     "commentBadge": "Commented",
     "prev": "Previous review",
     "next": "Next review",
-    "slide": "Review {n} of {total}",
-    "relations": {
-      "sameTeam": "Worked together on the same team"
-    }
+    "slide": "Review {n} of {total}"
   }
 }
