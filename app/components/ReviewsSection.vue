@@ -103,7 +103,18 @@ function onPointerUp(event: PointerEvent) {
         >
           <article class="flex h-full flex-col rounded-2xl border border-default bg-[color-mix(in_oklab,var(--ui-primary)_4%,var(--ui-bg))] p-6 sm:p-8">
             <header class="flex items-center gap-3">
+              <!-- Their photo when we have one, otherwise their initials -->
+              <img
+                v-if="review.photo"
+                :src="review.photo"
+                alt=""
+                width="40"
+                height="40"
+                loading="lazy"
+                class="size-10 shrink-0 rounded-full object-cover"
+              >
               <span
+                v-else
                 aria-hidden="true"
                 class="grid size-10 shrink-0 place-items-center rounded-full bg-primary font-display text-lg font-bold text-white"
               >
