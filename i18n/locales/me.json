@@ -219,35 +219,6 @@
     "commentBadge": "Komentar",
     "prev": "Prethodna preporuka",
     "next": "Sljedeća preporuka",
-    "slide": "Preporuka {n} od {total}",
-    "items": [
-      {
-        "name": "Kolega 1",
-        "role": "Uloga, Kompanija",
-        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
-      },
-      {
-        "name": "Kolega 2",
-        "role": "Uloga, Kompanija",
-        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom.",
-        "action": "commented"
-      },
-      {
-        "name": "Kolega 3",
-        "role": "Uloga, Kompanija",
-        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
-      },
-      {
-        "name": "Kolega 4",
-        "role": "Uloga, Kompanija",
-        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom.",
-        "action": "commented"
-      },
-      {
-        "name": "Kolega 5",
-        "role": "Uloga, Kompanija",
-        "text": "Placeholder: rečenica ili dvije od nekoga sa kim si radio, o tome kako je bilo raditi sa tobom."
-      }
-    ]
+    "slide": "Preporuka {n} od {total}"
   }
 }

@@ -1,19 +1,13 @@
 <script setup lang="ts">
-const { t, tm, rt } = useI18n()
+import { recommendations } from '~/data/recommendations'
 
-interface Review {
-  name: string
-  role: string
-  text: string
-  // Like on GitHub: most reviewers approve, some just leave a comment
-  action: 'approved' | 'commented'
-}
+const { t } = useI18n()
 
-const reviews = computed(() => (tm('reviews.items') as unknown as Record<keyof Review, string | undefined>[]).map(r => ({
-  name: rt(r.name!),
-  role: rt(r.role!),
-  text: rt(r.text!),
-  action: (r.action ? rt(r.action) : 'approved') as Review['action']
+const reviews = computed(() => recommendations.map(r => ({
+  ...r,
+  action: r.action ?? 'approved',
+  // Quote marks open the first paragraph and close the last
+  paragraphs: `“${r.text}”`.split('\n\n')
 })))
 
 // Start in the middle so there is a card on each side of the focused one
@@ -104,41 +98,63 @@ function onPointerUp(event: PointerEvent) {
           :class="i === active ? 'scale-100 opacity-100' : 'scale-[0.92] cursor-pointer opacity-40 hover:opacity-60'"
           @click="go(i)"
         >
-          <article class="flex h-full flex-col rounded-2xl border border-default bg-[color-mix(in_oklab,var(--ui-primary)_4%,var(--ui-bg))] p-6 sm:p-8">
-            <header class="flex items-center gap-3">
+          <article class="flex h-full flex-col rounded-2xl border border-default bg-[color-mix(in_oklab,var(--ui-primary)_4%,var(--ui-bg))] p-6 sm:p-10">
+            <header class="flex items-center gap-4">
+              <!-- Their photo when we have one, otherwise their initials -->
+              <img
+                v-if="review.photo"
+                :src="review.photo"
+                alt=""
+                width="48"
+                height="48"
+                loading="lazy"
+                class="size-12 shrink-0 rounded-full object-cover ring-2 ring-default"
+              >
               <span
+                v-else
                 aria-hidden="true"
-                class="grid size-10 shrink-0 place-items-center rounded-full bg-primary font-display text-lg font-bold text-white"
+                class="grid size-12 shrink-0 place-items-center rounded-full bg-primary font-display text-xl font-bold text-white"
               >
                 {{ initials(review.name) }}
               </span>
-              <p class="text-sm leading-snug text-muted">
-                <span class="font-semibold text-highlighted">{{ review.name }}</span>
-                {{ t(`reviews.${review.action}`) }}
-                <span class="block">{{ review.role }}</span>
+              <p class="leading-snug">
+                <span class="text-base font-semibold text-highlighted">{{ review.name }}</span>
+                <span class="ml-1 text-sm text-muted">{{ t(`reviews.${review.action}`) }}</span>
+                <span class="mt-0.5 block text-sm text-muted">{{ review.role }}</span>
               </p>
             </header>
 
-            <blockquote class="mt-6 grow font-display text-2xl leading-snug font-medium text-highlighted sm:text-[1.65rem]">
-              “{{ review.text }}”
+            <blockquote class="mt-8 grow space-y-4 font-display text-lg leading-[1.35] font-medium text-highlighted sm:text-[1.3125rem]">
+              <p
+                v-for="paragraph in review.paragraphs"
+                :key="paragraph"
+              >
+                {{ paragraph }}
+              </p>
             </blockquote>
 
-            <footer
-              class="mt-6 flex items-center gap-2 border-t border-default pt-4 text-sm font-medium"
-              :class="review.action === 'approved' ? 'text-[#2DA44E]' : 'text-muted'"
-            >
-              <UIcon
-                :name="review.action === 'approved' ? 'i-lucide-circle-check' : 'i-lucide-message-square'"
-                class="size-5"
-              />
-              {{ t(review.action === 'approved' ? 'reviews.badge' : 'reviews.commentBadge') }}
+            <footer class="mt-8 border-t border-default pt-5 text-sm">
+              <span
+                class="flex items-center gap-2 font-medium"
+                :class="review.action === 'approved' ? 'text-[#2DA44E]' : 'text-muted'"
+              >
+                <UIcon
+                  :name="review.action === 'approved' ? 'i-lucide-circle-check' : 'i-lucide-message-square'"
+                  class="size-5"
+                />
+                {{ t(review.action === 'approved' ? 'reviews.badge' : 'reviews.commentBadge') }}
+              </span>
             </footer>
           </article>
         </li>
       </ol>
     </div>
 
-    <div class="relative z-10 mx-auto mt-8 flex max-w-7xl items-center justify-center gap-6 px-4 sm:px-8">
+    <!-- Nothing to page through with a single review -->
+    <div
+      v-if="reviews.length > 1"
+      class="relative z-10 mx-auto mt-8 flex max-w-7xl items-center justify-center gap-6 px-4 sm:px-8"
+    >
       <UButton
         icon="i-lucide-arrow-left"
         color="neutral"
@@ -179,7 +195,7 @@ function onPointerUp(event: PointerEvent) {
 
 <style scoped>
 [data-carousel] {
-  --slide: min(76vw, 30rem);
+  --slide: min(88vw, 40rem);
   --gap: 1rem;
 }
 
