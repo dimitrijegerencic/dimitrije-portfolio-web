@@ -17,6 +17,12 @@ export interface Recommendation {
 
 export const recommendations: Recommendation[] = [
   {
+    name: 'Omar Đečević',
+    role: 'PHP Developer',
+    photo: '/reviews/omar-decevic.jpg',
+    text: 'I had the chance to work with Dimitrije on some pretty challenging projects, and it was always a pleasure working with him.\n\nHe\'s a great frontend developer, very detail-oriented and responsible, and someone you can always count on. I especially appreciated the fact that no matter how busy he was, he was always happy to answer questions, help out, or share his thoughts on something.\n\nOn top of all that, he\'s just a great guy to work with, and I\'d be happy to work with him again. I\'d definitely recommend him to any team!'
+  },
+  {
     name: 'Miljan Golubovic',
     role: 'Cybersecurity Engineer',
     photo: '/reviews/miljan-golubovic.jpg',
