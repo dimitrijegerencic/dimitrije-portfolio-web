@@ -7,7 +7,7 @@ const reviews = computed(() => recommendations.map(r => ({
   ...r,
   action: r.action ?? 'approved',
   // Quote marks open the first paragraph and close the last
-  paragraphs: `“${r.text}”`.split('\n\n')
+  paragraphs: r.text ? `“${r.text}”`.split('\n\n') : []
 })))
 
 // Start in the middle so there is a card on each side of the focused one
@@ -120,7 +120,10 @@ function onPointerUp(event: PointerEvent) {
               <p class="leading-snug">
                 <span class="text-base font-semibold text-highlighted">{{ review.name }}</span>
                 <span class="ml-1 text-sm text-muted">{{ t(`reviews.${review.action}`) }}</span>
-                <span class="mt-0.5 block text-sm text-muted">{{ review.role }}</span>
+                <span
+                  v-if="review.role"
+                  class="mt-0.5 block text-sm text-muted"
+                >{{ review.role }}</span>
               </p>
             </header>
 

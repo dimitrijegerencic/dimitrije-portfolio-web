@@ -17,6 +17,12 @@ export interface Recommendation {
 
 export const recommendations: Recommendation[] = [
   {
+    name: 'Miljan Golubovic',
+    role: 'Cybersecurity Engineer',
+    photo: '/reviews/miljan-golubovic.jpg',
+    text: 'I\'ve known Dimitrije for a long time, and he has helped me on a few personal projects: the frontend for internal tools and a portal for client-facing reports.\n\nWith work like that, the interface is half the job. There is a lot of data, and it has to be shown so that people find their way around without anyone explaining it. Dimitrije has a real feel for that and knows how to build an interface where clients get around on their own, without questions or wandering, which is harder than it looks.\n\nNothing unnecessary, everything in its place, and he always watches for the small details most people skip.'
+  },
+  {
     name: 'Luka Milikic',
     role: 'Full Stack Developer',
     photo: '/reviews/luka-milikic.jpg',
