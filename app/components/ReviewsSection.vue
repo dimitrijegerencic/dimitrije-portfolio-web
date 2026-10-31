@@ -1,19 +1,16 @@
 <script setup lang="ts">
-const { t, tm, rt } = useI18n()
+import { recommendations } from '~/data/recommendations'
 
-interface Review {
-  name: string
-  role: string
-  text: string
-  // Like on GitHub: most reviewers approve, some just leave a comment
-  action: 'approved' | 'commented'
-}
+const { t, locale } = useI18n()
 
-const reviews = computed(() => (tm('reviews.items') as unknown as Record<keyof Review, string | undefined>[]).map(r => ({
-  name: rt(r.name!),
-  role: rt(r.role!),
-  text: rt(r.text!),
-  action: (r.action ? rt(r.action) : 'approved') as Review['action']
+const reviews = computed(() => recommendations.map(r => ({
+  ...r,
+  action: r.action ?? 'approved',
+  // Quote marks open the first paragraph and close the last
+  paragraphs: `“${r.text}”`.split('\n\n'),
+  // "October 2026", in the page language
+  when: new Intl.DateTimeFormat(locale.value === 'me' ? 'sr-Latn-ME' : 'en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' })
+    .format(new Date(`${r.date}T00:00:00Z`))
 })))
 
 // Start in the middle so there is a card on each side of the focused one
@@ -116,11 +113,17 @@ function onPointerUp(event: PointerEvent) {
                 <span class="font-semibold text-highlighted">{{ review.name }}</span>
                 {{ t(`reviews.${review.action}`) }}
                 <span class="block">{{ review.role }}</span>
+                <span class="block text-xs">{{ t(`reviews.relations.${review.relation}`) }}, {{ review.when }}</span>
               </p>
             </header>
 
-            <blockquote class="mt-6 grow font-display text-2xl leading-snug font-medium text-highlighted sm:text-[1.65rem]">
-              “{{ review.text }}”
+            <blockquote class="mt-6 grow space-y-4 font-display text-xl leading-snug font-medium text-highlighted sm:text-2xl">
+              <p
+                v-for="paragraph in review.paragraphs"
+                :key="paragraph"
+              >
+                {{ paragraph }}
+              </p>
             </blockquote>
 
             <footer
@@ -138,7 +141,11 @@ function onPointerUp(event: PointerEvent) {
       </ol>
     </div>
 
-    <div class="relative z-10 mx-auto mt-8 flex max-w-7xl items-center justify-center gap-6 px-4 sm:px-8">
+    <!-- Nothing to page through with a single review -->
+    <div
+      v-if="reviews.length > 1"
+      class="relative z-10 mx-auto mt-8 flex max-w-7xl items-center justify-center gap-6 px-4 sm:px-8"
+    >
       <UButton
         icon="i-lucide-arrow-left"
         color="neutral"
@@ -179,7 +186,7 @@ function onPointerUp(event: PointerEvent) {
 
 <style scoped>
 [data-carousel] {
-  --slide: min(76vw, 30rem);
+  --slide: min(84vw, 34rem);
   --gap: 1rem;
 }
 

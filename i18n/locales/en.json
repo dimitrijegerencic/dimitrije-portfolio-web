@@ -220,34 +220,8 @@
     "prev": "Previous review",
     "next": "Next review",
     "slide": "Review {n} of {total}",
-    "items": [
-      {
-        "name": "Colleague 1",
-        "role": "Role, Company",
-        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
-      },
-      {
-        "name": "Colleague 2",
-        "role": "Role, Company",
-        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you.",
-        "action": "commented"
-      },
-      {
-        "name": "Colleague 3",
-        "role": "Role, Company",
-        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
-      },
-      {
-        "name": "Colleague 4",
-        "role": "Role, Company",
-        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you.",
-        "action": "commented"
-      },
-      {
-        "name": "Colleague 5",
-        "role": "Role, Company",
-        "text": "Placeholder: a sentence or two from someone you have worked with, about what it was like to work with you."
-      }
-    ]
+    "relations": {
+      "sameTeam": "Worked together on the same team"
+    }
   }
 }
